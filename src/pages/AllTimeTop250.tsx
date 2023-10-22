@@ -36,7 +36,7 @@ function AllTimeTop250() {
     }, [formattedDateEnd, formattedDateStart]);
 
     return (
-        <main className="p-4 ml-5 sm:ml-64 mt-16 sm:mt-0">
+        <main className="p-4 ml-4 sm:ml-64 sm:mt-6">
             <div className="py-5">
                 <h1 className="text-7xl font-bold pb-5">All time top 250</h1>
             </div>
