@@ -1,26 +1,27 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import axios from "axios";
 
 function Games() {
     const [games, setGames] = useState([]);
-    const [searchQuery, setSearchQuery] = useState([]);
+    const [searchQuery /*, setSearchQuery*/] = useState([]);
 
     const dateRange = 30;
+
+    function formatDate(date: Date) {
+        const year = date.getFullYear();
+        const month = String(date.getMonth() + 1).padStart(2, "0");
+        const day = String(date.getDate()).padStart(2, "0");
+        return `${year}-${month}-${day}`;
+    }
 
     const currentDate = new Date();
     const dateStart = new Date(currentDate);
     dateStart.setDate(currentDate.getDate() - dateRange);
-    let year = dateStart.getFullYear();
-    let month = String(dateStart.getMonth() + 1).padStart(2, "0");
-    let day = String(dateStart.getDate()).padStart(2, "0");
-    const formattedDateStart = `${year}-${month}-${day}`;
+    const formattedDateStart = formatDate(dateStart);
 
     const dateEnd = new Date(currentDate);
     dateEnd.setDate(currentDate.getDate() + dateRange);
-    year = dateEnd.getFullYear();
-    month = String(dateEnd.getMonth() + 1).padStart(2, "0");
-    day = String(dateEnd.getDate()).padStart(2, "0");
-    const formattedDateEnd = `${year}-${month}-${day}`;
+    const formattedDateEnd = formatDate(dateEnd);
 
     useEffect(() => {
         axios
@@ -33,7 +34,7 @@ function Games() {
                 console.log(data.data.results);
                 setGames(data.data.results);
             });
-    }, [searchQuery]);
+    }, [searchQuery, formattedDateEnd, formattedDateStart]);
 
     return (
         <div>
