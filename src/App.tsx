@@ -1,19 +1,25 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Home from "./Home";
-import Sidebar from "./Sidebar";
+import Sidebar from "./components/Sidebar";
 
 function App() {
-    const [page, setPage] = useState("home");
+    const [page, setPage] = useState({ id: "home", title: "Games Catalog" });
+    // change page title on page change
+    useEffect(() => {
+        document.title = page.title;
+    }, [page]);
     return (
         <>
             <Sidebar page={page} setPage={setPage} />
-            {page === "home" ? (
+            {page.id === "home" ? (
                 <Home />
-            ) : page === "last30Days" ? null : page ===
-              "thisPastWeek" ? null : page === "nextWeek" ? null : page ===
-              "releaseCalendar" ? null : page ===
-              "bestOfThisYear" ? null : page ===
-              "bestOfLastYear" ? null : page === "allTimeTop250" ? null : null}
+            ) : page.id === "last30Days" ? null : page.id ===
+              "thisPastWeek" ? null : page.id ===
+              "nextWeek" ? null : page.id ===
+              "releaseCalendar" ? null : page.id ===
+              "bestOfThisYear" ? null : page.id ===
+              "bestOfLastYear" ? null : page.id ===
+              "allTimeTop250" ? null : null}
         </>
     );
 }

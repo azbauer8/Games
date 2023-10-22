@@ -1,7 +1,4 @@
-import SidebarItem from "./components/SidebarItem";
-interface Sidebar {
-    page?: string;
-}
+import SidebarItem from "./SidebarItem";
 
 function Sidebar({ page, setPage }) {
     return (
@@ -41,7 +38,7 @@ function Sidebar({ page, setPage }) {
                                 header={true}
                                 link="#"
                                 title="Home"
-                                // handleClick={setPage}
+                                setPage={setPage}
                             />
                         ) : (
                             <SidebarItem header={true} link="#" title="Home" />

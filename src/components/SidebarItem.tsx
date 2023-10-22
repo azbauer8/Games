@@ -1,3 +1,5 @@
+import React, { Dispatch, SetStateAction } from "react";
+
 import {
     FaStar,
     FaFire,
@@ -8,22 +10,7 @@ import {
 } from "react-icons/fa6";
 import { IoPodium } from "react-icons/io5";
 
-interface SidebarItem {
-    isSelected?: boolean;
-    header?: boolean;
-    link?: string;
-    icon?: string;
-    title?: string;
-    handleClick?: () => void;
-}
-
-function SidebarItem({
-    isSelected = false,
-    header = false,
-    link = "",
-    icon = "",
-    title = "",
-}) {
+function SidebarItem({ isSelected, header, link, title, setPage, icon }) {
     if (header === true && link !== "") {
         return (
             <li>
