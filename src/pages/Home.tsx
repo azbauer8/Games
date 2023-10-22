@@ -36,8 +36,8 @@ function Home() {
     }, [formattedDateEnd, formattedDateStart]);
 
     return (
-        <main className="p-4 ml-5 sm:ml-64 mt-16 sm:mt-0">
-            <div className="py-5">
+        <main className="p-4 ml-4 sm:ml-64">
+            <div className="pb-5">
                 <h1 className="text-7xl font-bold pb-5">New and trending</h1>
                 Based on player counts and release date
             </div>
