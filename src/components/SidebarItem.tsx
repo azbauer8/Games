@@ -5,6 +5,7 @@ import {
     FaRegCalendar,
     FaTrophy,
     FaCrown,
+    FaHouseChimney,
 } from "react-icons/fa6";
 import { IoPodium } from "react-icons/io5";
 
@@ -61,7 +62,13 @@ const SidebarItem: React.FC<SidebarItemProps> = ({
                     className="flex items-center p-2 text-white rounded-lg group"
                     onClick={handleClick}
                 >
-                    {icon === "FaStar" ? (
+                    {icon === "FaHouseChimney" ? (
+                        <FaHouseChimney
+                            className={`flex-shrink-0 w-5 h-5 ${
+                                isSelected ? "text-white" : "text-neutral-500"
+                            } transition duration-75 group-hover:text-white`}
+                        />
+                    ) : icon === "FaStar" ? (
                         <FaStar
                             className={`flex-shrink-0 w-5 h-5 ${
                                 isSelected ? "text-white" : "text-neutral-500"
