@@ -6,6 +6,8 @@ module.exports = {
         "./components/**/*.{ts,tsx}",
         "./app/**/*.{ts,tsx}",
         "./src/**/*.{ts,tsx}",
+        "./node_modules/flowbite/**/*.js",
+        "./index.html",
     ],
     theme: {
         container: {
@@ -16,6 +18,19 @@ module.exports = {
             },
         },
         extend: {
+            fontFamily: {
+                sans: [
+                    "-apple-system",
+                    "BlinkMacSystemFont",
+                    "Segoe UI",
+                    "Roboto",
+                    "Oxygen",
+                    "Ubuntu",
+                    "Open Sans",
+                    "Helvetica Neue",
+                    "sans-serif",
+                ],
+            },
             colors: {
                 border: "hsl(var(--border))",
                 input: "hsl(var(--input))",
@@ -72,5 +87,5 @@ module.exports = {
             },
         },
     },
-    plugins: [require("tailwindcss-animate")],
+    plugins: [require("tailwindcss-animate"), require("flowbite/plugin")],
 };

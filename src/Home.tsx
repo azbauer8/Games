@@ -1,11 +1,9 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
 
-function Games() {
-    const [games, setGames] = useState([]);
-    const [searchQuery /*, setSearchQuery*/] = useState([]);
-
-    const dateRange = 30;
+function Home() {
+    const [games] = useState([]);
+    const dateRange = 90;
 
     function formatDate(date: Date) {
         const year = date.getFullYear();
@@ -23,34 +21,37 @@ function Games() {
     dateEnd.setDate(currentDate.getDate() + dateRange);
     const formattedDateEnd = formatDate(dateEnd);
 
-    useEffect(() => {
-        axios
-            .get(
-                `https://api.rawg.io/api/games?dates=${formattedDateStart},${formattedDateEnd}&ordering=-metacritic&page_size=100&key=${
-                    import.meta.env.VITE_RAWG_API_KEY
-                }`
-            )
-            .then((data) => {
-                console.log(data.data.results);
-                setGames(data.data.results);
-            });
-    }, [searchQuery, formattedDateEnd, formattedDateStart]);
+    // useEffect(() => {
+    //     axios
+    //         .get(
+    //             `https://api.rawg.io/api/games?&dates=${formattedDateStart},${formattedDateEnd}&key=${
+    //                 import.meta.env.VITE_RAWG_API_KEY
+    //             }`
+    //         )
+    //         .then((data) => {
+    //             console.log(data.data.results);
+    //             setGames(data.data.results);
+    //         });
+    // }, [formattedDateEnd, formattedDateStart]);
 
     return (
-        <div>
-            Games
+        <main className="p-4 ml-5 sm:ml-64">
+            <div className="py-5">
+                <h1 className="text-7xl font-bold pb-5">New and trending</h1>
+                Based on player counts and release date
+            </div>
             {games.map((item, i) => {
                 return (
                     <div key={i}>
                         <p>
-                            {item["name"]} :: {item["metacritic"]} ::{" "}
+                            {item["name"]} :: {item["rating"]} ::{" "}
                             {item["released"]}
                         </p>
                     </div>
                 );
-            })}
-        </div>
+            })}{" "}
+        </main>
     );
 }
 
-export default Games;
+export default Home;
