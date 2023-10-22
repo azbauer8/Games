@@ -1,5 +1,13 @@
 import { useState, useEffect } from "react";
-import Home from "./Home";
+import Home from "./pages/Home";
+import Last30Days from "./pages/Last30Days";
+import ThisPastWeek from "./pages/ThisPastWeek";
+import NextWeek from "./pages/NextWeek";
+import ReleaseCalendar from "./pages/ReleaseCalendar";
+import BestOfThisYear from "./pages/BestOfThisYear";
+import BestOfLastYear from "./pages/BestOfLastYear";
+import AllTimeTop250 from "./pages/AllTimeTop250";
+
 import Sidebar from "./components/Sidebar";
 
 function App() {
@@ -13,13 +21,21 @@ function App() {
             <Sidebar page={page} setPage={setPage} />
             {page.id === "home" ? (
                 <Home />
-            ) : page.id === "last30Days" ? null : page.id ===
-              "thisPastWeek" ? null : page.id ===
-              "nextWeek" ? null : page.id ===
-              "releaseCalendar" ? null : page.id ===
-              "bestOfThisYear" ? null : page.id ===
-              "bestOfLastYear" ? null : page.id ===
-              "allTimeTop250" ? null : null}
+            ) : page.id === "last30Days" ? (
+                <Last30Days />
+            ) : page.id === "thisPastWeek" ? (
+                <ThisPastWeek />
+            ) : page.id === "nextWeek" ? (
+                <NextWeek />
+            ) : page.id === "releaseCalendar" ? (
+                <ReleaseCalendar />
+            ) : page.id === "bestOfThisYear" ? (
+                <BestOfThisYear />
+            ) : page.id === "bestOfLastYear" ? (
+                <BestOfLastYear />
+            ) : page.id === "allTimeTop250" ? (
+                <AllTimeTop250 />
+            ) : null}
         </>
     );
 }

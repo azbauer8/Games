@@ -1,6 +1,53 @@
 import SidebarItem from "./SidebarItem";
 
-function Sidebar({ page, setPage }) {
+interface SidebarProps {
+    page: { id: string; title: string };
+    setPage: (page: { id: string; title: string }) => void;
+}
+
+const Sidebar: React.FC<SidebarProps> = ({ page, setPage }) => {
+    const itemsArray = [
+        { id: "home", title: "Home", isHeader: true, isLink: true },
+        { id: "newReleases", title: "New Releases", isHeader: true },
+        {
+            id: "last30Days",
+            title: "Last 30 days",
+            icon: "FaStar",
+            isLink: true,
+        },
+        {
+            id: "thisPastWeek",
+            title: "This past week",
+            icon: "FaFire",
+            isLink: true,
+        },
+        { id: "nextWeek", title: "Next week", icon: "FaForward", isLink: true },
+        {
+            id: "releaseCalendar",
+            title: "Release calendar",
+            icon: "FaRegCalendar",
+            isLink: true,
+        },
+        { id: "top", title: "Top", isHeader: true },
+        {
+            id: "bestOfThisYear",
+            title: "Best of this year",
+            icon: "FaTrophy",
+            isLink: true,
+        },
+        {
+            id: "bestOfLastYear",
+            title: "Best of last year",
+            icon: "IoPodium",
+            isLink: true,
+        },
+        {
+            id: "allTimeTop250",
+            title: "All time top 250",
+            icon: "FaCrown",
+            isLink: true,
+        },
+    ];
     return (
         <>
             <button
@@ -19,8 +66,8 @@ function Sidebar({ page, setPage }) {
                     xmlns="http://www.w3.org/2000/svg"
                 >
                     <path
-                        clip-rule="evenodd"
-                        fill-rule="evenodd"
+                        clipRule="evenodd"
+                        fillRule="evenodd"
                         d="M2 4.75A.75.75 0 012.75 4h14.5a.75.75 0 010 1.5H2.75A.75.75 0 012 4.75zm0 10.5a.75.75 0 01.75-.75h7.5a.75.75 0 010 1.5h-7.5a.75.75 0 01-.75-.75zM2 10a.75.75 0 01.75-.75h14.5a.75.75 0 010 1.5H2.75A.75.75 0 012 10z"
                     ></path>
                 </svg>
@@ -32,59 +79,28 @@ function Sidebar({ page, setPage }) {
             >
                 <div className="h-full px-3 py-4 overflow-y-auto bg-neutral-900">
                     <ul className="space-y-2 font-medium">
-                        {page === "home" ? (
+                        {itemsArray.map((item) => (
                             <SidebarItem
-                                isSelected={true}
-                                header={true}
-                                link="#"
-                                title="Home"
-                                setPage={setPage}
+                                key={item.id}
+                                id={item.id}
+                                title={item.title}
+                                {...(item.icon && { icon: item.icon })}
+                                {...(item.isHeader && {
+                                    isHeader: item.isHeader,
+                                })}
+                                {...(item.isLink && { isLink: item.isLink })}
+                                {...(item.isLink && { setPage: setPage })}
+                                {...(item.isLink &&
+                                    page.id === item.id && {
+                                        isSelected: true,
+                                    })}
                             />
-                        ) : (
-                            <SidebarItem header={true} link="#" title="Home" />
-                        )}
-                        <SidebarItem header={true} title="New Releases" />
-                        <SidebarItem
-                            title="Last 30 days"
-                            link="#"
-                            icon="star"
-                        />
-                        <SidebarItem
-                            title="This past week"
-                            link="#"
-                            icon="fire"
-                        />
-                        <SidebarItem
-                            title="Next week"
-                            link="#"
-                            icon="fast-forward"
-                        />
-                        <SidebarItem
-                            title="Release calendar"
-                            link="#"
-                            icon="calendar"
-                        />
-                        <SidebarItem header={true} title="Top" />
-                        <SidebarItem
-                            title="Best of this year"
-                            link="#"
-                            icon="trophy"
-                        />
-                        <SidebarItem
-                            title="Best of last year"
-                            link="#"
-                            icon="podium"
-                        />
-                        <SidebarItem
-                            title="All time top 250"
-                            link="#"
-                            icon="crown"
-                        />
+                        ))}
                     </ul>
                 </div>
             </aside>
         </>
     );
-}
+};
 
 export default Sidebar;

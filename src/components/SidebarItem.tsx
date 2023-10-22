@@ -1,5 +1,3 @@
-import React, { Dispatch, SetStateAction } from "react";
-
 import {
     FaStar,
     FaFire,
@@ -10,19 +8,44 @@ import {
 } from "react-icons/fa6";
 import { IoPodium } from "react-icons/io5";
 
-function SidebarItem({ isSelected, header, link, title, setPage, icon }) {
-    if (header === true && link !== "") {
+interface SidebarItemProps {
+    id: string;
+    title: string;
+    setPage?: (page: { id: string; title: string }) => void;
+    icon?: string;
+    isHeader?: boolean;
+    isLink?: boolean;
+    isSelected?: boolean;
+}
+
+const SidebarItem: React.FC<SidebarItemProps> = ({
+    id,
+    title,
+    setPage,
+    icon,
+    isHeader,
+    isLink,
+    isSelected,
+}) => {
+    const handleClick = () => {
+        if (setPage) {
+            setPage({ id: id, title: title });
+        }
+    };
+
+    if (isHeader && isLink) {
         return (
             <li>
                 <a
-                    href={link}
+                    href="#"
                     className="flex items-center p-2 text-white rounded-lg hover:text-neutral-500 group"
+                    onClick={handleClick}
                 >
                     <span className="text-3xl font-bold">{title}</span>
                 </a>
             </li>
         );
-    } else if (header === true) {
+    } else if (isHeader) {
         return (
             <li>
                 <span className="flex items-center p-2 text-xl text-white rounded-lg group">
@@ -30,51 +53,51 @@ function SidebarItem({ isSelected, header, link, title, setPage, icon }) {
                 </span>
             </li>
         );
-    } else {
+    } else if (isLink) {
         return (
             <li>
                 <a
-                    href={link}
+                    href="#"
                     className="flex items-center p-2 text-white rounded-lg group"
-                    // onClick={handleClick}
+                    onClick={handleClick}
                 >
-                    {icon === "star" ? (
+                    {icon === "FaStar" ? (
                         <FaStar
                             className={`flex-shrink-0 w-5 h-5 ${
                                 isSelected ? "text-white" : "text-neutral-500"
                             } transition duration-75 group-hover:text-white`}
                         />
-                    ) : icon === "fire" ? (
+                    ) : icon === "FaFire" ? (
                         <FaFire
                             className={`flex-shrink-0 w-5 h-5 ${
                                 isSelected ? "text-white" : "text-neutral-500"
                             } transition duration-75 group-hover:text-white`}
                         />
-                    ) : icon === "fast-forward" ? (
+                    ) : icon === "FaForward" ? (
                         <FaForward
                             className={`flex-shrink-0 w-5 h-5 ${
                                 isSelected ? "text-white" : "text-neutral-500"
                             } transition duration-75 group-hover:text-white`}
                         />
-                    ) : icon === "calendar" ? (
+                    ) : icon === "FaRegCalendar" ? (
                         <FaRegCalendar
                             className={`flex-shrink-0 w-5 h-5 ${
                                 isSelected ? "text-white" : "text-neutral-500"
                             } transition duration-75 group-hover:text-white`}
                         />
-                    ) : icon === "trophy" ? (
+                    ) : icon === "FaTrophy" ? (
                         <FaTrophy
                             className={`flex-shrink-0 w-5 h-5 ${
                                 isSelected ? "text-white" : "text-neutral-500"
                             } transition duration-75 group-hover:text-white`}
                         />
-                    ) : icon === "podium" ? (
+                    ) : icon === "IoPodium" ? (
                         <IoPodium
                             className={`flex-shrink-0 w-5 h-5 ${
                                 isSelected ? "text-white" : "text-neutral-500"
                             } transition duration-75 group-hover:text-white`}
                         />
-                    ) : icon === "crown" ? (
+                    ) : icon === "FaCrown" ? (
                         <FaCrown
                             className={`flex-shrink-0 w-5 h-5 ${
                                 isSelected ? "text-white" : "text-neutral-500"
@@ -87,7 +110,9 @@ function SidebarItem({ isSelected, header, link, title, setPage, icon }) {
                 </a>
             </li>
         );
+    } else {
+        return null;
     }
-}
+};
 
 export default SidebarItem;

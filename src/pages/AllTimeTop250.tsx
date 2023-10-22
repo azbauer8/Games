@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
 
-function Home() {
-    const [games] = useState([]);
+function AllTimeTop250() {
+    const [games, setGames] = useState([]);
     const dateRange = 90;
 
     function formatDate(date: Date) {
@@ -21,24 +21,24 @@ function Home() {
     dateEnd.setDate(currentDate.getDate() + dateRange);
     const formattedDateEnd = formatDate(dateEnd);
 
-    // useEffect(() => {
-    //     axios
-    //         .get(
-    //             `https://api.rawg.io/api/games?&dates=${formattedDateStart},${formattedDateEnd}&key=${
-    //                 import.meta.env.VITE_RAWG_API_KEY
-    //             }`
-    //         )
-    //         .then((data) => {
-    //             console.log(data.data.results);
-    //             setGames(data.data.results);
-    //         });
-    // }, [formattedDateEnd, formattedDateStart]);
+    useEffect(() => {
+        console.log("fetching games...");
+        axios
+            .get(
+                `https://api.rawg.io/api/games?&dates=${formattedDateStart},${formattedDateEnd}&key=${
+                    import.meta.env.VITE_RAWG_API_KEY
+                }`
+            )
+            .then((data) => {
+                console.log(data.data.results);
+                setGames(data.data.results);
+            });
+    }, [formattedDateEnd, formattedDateStart]);
 
     return (
         <main className="p-4 ml-5 sm:ml-64">
             <div className="py-5">
-                <h1 className="text-7xl font-bold pb-5">New and trending</h1>
-                Based on player counts and release date
+                <h1 className="text-7xl font-bold pb-5">All time top 250</h1>
             </div>
             {games.map((item, i) => {
                 return (
@@ -54,4 +54,4 @@ function Home() {
     );
 }
 
-export default Home;
+export default AllTimeTop250;
