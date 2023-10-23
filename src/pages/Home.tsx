@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
+import GameCard from "../components/GameCard";
 
 function Home() {
     const [games, setGames] = useState([]);
@@ -41,16 +42,19 @@ function Home() {
                 <h1 className="text-7xl font-bold pb-5">New and trending</h1>
                 Based on player counts and release date
             </div>
-            {games.map((item, i) => {
-                return (
-                    <div key={i}>
-                        <p>
-                            {item["name"]} :: {item["rating"]} ::{" "}
-                            {item["released"]}
-                        </p>
-                    </div>
-                );
-            })}{" "}
+            <div className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4 gap-4 pr-5">
+                {games.map((item, i) => {
+                    return (
+                        <GameCard
+                            key={i}
+                            name={item["name"]}
+                            image={item["background_image"]}
+                            rating={item["rating"]}
+                            released={item["released"]}
+                        />
+                    );
+                })}{" "}
+            </div>
         </main>
     );
 }
