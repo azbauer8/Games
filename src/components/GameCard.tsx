@@ -20,7 +20,7 @@ const SidebarItem: React.FC<GameCardProps> = ({
     });
 
     return (
-        <div className="bg-[#202020] rounded-lg relative">
+        <div className="bg-[#202020] rounded-lg">
             <img src={image} alt={name} className="rounded-t-lg" />
             <div className="p-3 ">
                 <div className="pb-2 w-full flex justify-between">

@@ -107,7 +107,7 @@ const Sidebar: React.FC<SidebarProps> = ({ page, setPage }) => {
                     </svg>
                 </button>
                 {sidebarOpen && (
-                    <div className="sm:hidden fixed x-0 px-3 my-4 z-10 overflow-y-auto rounded-lg bg-neutral-900 bg-opacity-80 backdrop-filter backdrop-blur-lg">
+                    <div className="sm:hidden fixed x-0 px-3 my-4 z-50 overflow-y-auto rounded-lg bg-neutral-900 bg-opacity-80 backdrop-filter backdrop-blur-lg">
                         <ul className="space-y-2 font-medium">
                             {itemsArray.map((item) => (
                                 <SidebarItem
