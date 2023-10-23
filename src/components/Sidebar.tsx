@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect, useRef } from "react";
 import SidebarItem from "./SidebarItem";
 
 interface SidebarProps {
@@ -59,6 +59,16 @@ const Sidebar: React.FC<SidebarProps> = ({ page, setPage }) => {
     function handleClick() {
         setSidebarOpen(!sidebarOpen);
     }
+    useEffect(() => {
+        document.addEventListener("click", handleClickOutside, true);
+    }, []);
+    const ref = useRef<HTMLDivElement>(null);
+    const handleClickOutside = (e) => {
+        const node = ref.current;
+        if (!node?.contains(e.target)) {
+            setSidebarOpen(false);
+        }
+    };
     return (
         <>
             {/* left bar (desktop) */}
@@ -107,7 +117,10 @@ const Sidebar: React.FC<SidebarProps> = ({ page, setPage }) => {
                     </svg>
                 </button>
                 {sidebarOpen && (
-                    <div className="sm:hidden fixed x-0 px-3 my-4 z-50 overflow-y-auto rounded-lg bg-neutral-900 bg-opacity-80 backdrop-filter backdrop-blur-lg">
+                    <div
+                        ref={ref}
+                        className="sm:hidden fixed x-0 px-3 my-4 z-50 overflow-y-auto rounded-lg bg-neutral-900 bg-opacity-80 backdrop-filter backdrop-blur-lg"
+                    >
                         <ul className="space-y-2 font-medium">
                             {itemsArray.map((item) => (
                                 <SidebarItem
