@@ -34,7 +34,7 @@ function BestOfThisYear() {
     }, [formattedDateEnd, formattedDateStart]);
 
     return (
-        <main className="p-4 ml-4   sm:mt-6">
+        <main className="p-4 sm:mt-6">
             <div className="pb-5">
                 <h1 className="text-7xl font-bold pb-5">Best of this year</h1>
             </div>

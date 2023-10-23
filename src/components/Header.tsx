@@ -64,7 +64,7 @@ const Header = ({ page, setPage }) => {
         <nav className="flex items-center rounded-lg justify-between w-full py-2.5 px-6 bg-clip-padding backdrop-filter backdrop-blur-3xl bg-opacity-100">
             <Sheet open={sidebarOpen} onOpenChange={setSidebarOpen}>
                 <SheetTrigger asChild>
-                    <button className="p-2 mt-2 ml-3 text-sm text-neutral-500 hover:text-white rounded-lg">
+                    <button className="p-2 mt-2 text-sm text-neutral-500 hover:text-white rounded-lg">
                         <span className="sr-only">Open sidebar</span>
                         <svg
                             className="w-8 h-8"
