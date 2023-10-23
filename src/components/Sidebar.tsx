@@ -7,7 +7,7 @@ interface SidebarProps {
 }
 
 const Sidebar: React.FC<SidebarProps> = ({ page, setPage }) => {
-    const [sidebarOpen, setsidebarOpen] = useState(false);
+    const [sidebarOpen, setSidebarOpen] = useState(false);
     const itemsArray = [
         {
             id: "home",
@@ -57,7 +57,7 @@ const Sidebar: React.FC<SidebarProps> = ({ page, setPage }) => {
         },
     ];
     function handleClick() {
-        setsidebarOpen(!sidebarOpen);
+        setSidebarOpen(!sidebarOpen);
     }
     return (
         <>
@@ -88,7 +88,7 @@ const Sidebar: React.FC<SidebarProps> = ({ page, setPage }) => {
             {/* top bar (mobile) */}
             <aside className="top-0 left-0 z-40 w-screen h-18 transition-transform sm:translate-x-full translate-x-0">
                 <button
-                    className="inline-flex items-center p-2 mt-2 ml-3 text-sm text-gray-500 rounded-lg sm:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600"
+                    className="inline-flex items-center p-2 mt-2 ml-3 text-sm text-gray-500 rounded-lg sm:hidden hover:text-white focus:outline-none dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600"
                     onClick={handleClick}
                 >
                     <span className="sr-only">Open sidebar</span>
@@ -107,7 +107,7 @@ const Sidebar: React.FC<SidebarProps> = ({ page, setPage }) => {
                     </svg>
                 </button>
                 {sidebarOpen && (
-                    <div className="h-full px-3 py-4 overflow-y-auto bg-neutral-900">
+                    <div className="sm:hidden fixed x-0 px-3 my-4 z-10 overflow-y-auto rounded-lg bg-neutral-900 bg-opacity-80 backdrop-filter backdrop-blur-lg">
                         <ul className="space-y-2 font-medium">
                             {itemsArray.map((item) => (
                                 <SidebarItem
@@ -122,6 +122,9 @@ const Sidebar: React.FC<SidebarProps> = ({ page, setPage }) => {
                                         isLink: item.isLink,
                                     })}
                                     {...(item.isLink && { setPage: setPage })}
+                                    {...(item.isLink && {
+                                        setSidebarOpen: setSidebarOpen,
+                                    })}
                                     {...(item.isLink &&
                                         page.id === item.id && {
                                             isSelected: true,
