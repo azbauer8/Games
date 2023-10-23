@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import { FaGithub, FaHandPeace } from "react-icons/fa6";
 import Home from "./pages/Home";
 import Last30Days from "./pages/Last30Days";
 import ThisPastWeek from "./pages/ThisPastWeek";
@@ -18,6 +19,14 @@ function App() {
     }, [page]);
     return (
         <>
+            <div className="absolute right-5 top-4 flex space-x-6">
+                <a href="https://zachbauer.me">
+                    <FaHandPeace className="h-7 w-7 sm:h-8 sm:w-8" />
+                </a>
+                <a href="https://github.com/azbauer8/Games">
+                    <FaGithub className="h-7 w-7 sm:h-8 sm:w-8" />
+                </a>
+            </div>
             <Sidebar page={page} setPage={setPage} />
             {page.id === "home" ? (
                 <Home />
