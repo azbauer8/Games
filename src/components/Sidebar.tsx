@@ -72,7 +72,7 @@ const Sidebar: React.FC<SidebarProps> = ({ page, setPage }) => {
     return (
         <>
             {/* left bar (desktop) */}
-            <aside className="fixed top-0 sm:top-9 left-0 z-40 w-64 h-screen transition-transform -translate-x-full sm:translate-x-0 bg-neutral-900">
+            <aside className="fixed top-0 sm:top-9 left-0 z-20 w-64 h-screen transition-transform -translate-x-full sm:translate-x-0 bg-neutral-900">
                 <div className="h-full px-3 py-4 overflow-y-auto bg-neutral-900">
                     <ul className="space-y-2 font-medium">
                         {itemsArray.map((item) => (
@@ -96,7 +96,7 @@ const Sidebar: React.FC<SidebarProps> = ({ page, setPage }) => {
                 </div>
             </aside>
             {/* top bar (mobile) */}
-            <aside className="top-0 left-0 z-40 w-screen h-18 transition-transform sm:translate-x-full translate-x-0">
+            <aside className="top-0 left-0 z-20 w-screen h-18 transition-transform sm:translate-x-full translate-x-0">
                 <button
                     className="inline-flex items-center p-2 mt-2 ml-3 text-sm text-neutral-500 rounded-lg sm:hidden hover:text-white focus:outline-none dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600"
                     onClick={handleClick}

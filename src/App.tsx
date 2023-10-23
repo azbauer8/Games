@@ -19,7 +19,7 @@ function App() {
     }, [page]);
     return (
         <>
-            <div className="absolute right-5 top-4 flex space-x-6">
+            <div className="absolute z-30 right-5 top-4 flex space-x-6">
                 <a href="https://zachbauer.me">
                     <FaHandPeace className="h-7 w-7 sm:h-8 sm:w-8 text-neutral-500 hover:text-white" />
                 </a>
