@@ -49,7 +49,7 @@ function BestOfLastYear() {
                             released={item["released"]}
                         />
                     );
-                })}{" "}
+                })}
             </div>
         </main>
     );

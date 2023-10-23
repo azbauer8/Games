@@ -53,7 +53,7 @@ function Home() {
                             released={item["released"]}
                         />
                     );
-                })}{" "}
+                })}
             </div>
         </main>
     );

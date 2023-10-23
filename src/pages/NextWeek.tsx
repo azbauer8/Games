@@ -51,7 +51,7 @@ function NextWeek() {
                             released={item["released"]}
                         />
                     );
-                })}{" "}
+                })}
             </div>
         </main>
     );

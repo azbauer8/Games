@@ -51,7 +51,7 @@ function ThisPastWeek() {
                             released={item["released"]}
                         />
                     );
-                })}{" "}
+                })}
             </div>
         </main>
     );

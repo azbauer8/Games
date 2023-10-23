@@ -61,7 +61,7 @@ function ReleaseCalendar() {
                             released={item["released"]}
                         />
                     );
-                })}{" "}
+                })}
             </div>
         </main>
     );

@@ -35,7 +35,7 @@ function AllTimeBest() {
                             released={item["released"]}
                         />
                     );
-                })}{" "}
+                })}
             </div>
         </main>
     );

@@ -51,7 +51,7 @@ function Last30Days() {
                             released={item["released"]}
                         />
                     );
-                })}{" "}
+                })}
             </div>
         </main>
     );
