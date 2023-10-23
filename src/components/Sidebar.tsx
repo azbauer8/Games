@@ -98,7 +98,7 @@ const Sidebar: React.FC<SidebarProps> = ({ page, setPage }) => {
             {/* top bar (mobile) */}
             <aside className="top-0 left-0 z-40 w-screen h-18 transition-transform sm:translate-x-full translate-x-0">
                 <button
-                    className="inline-flex items-center p-2 mt-2 ml-3 text-sm text-gray-500 rounded-lg sm:hidden hover:text-white focus:outline-none dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600"
+                    className="inline-flex items-center p-2 mt-2 ml-3 text-sm text-neutral-500 rounded-lg sm:hidden hover:text-white focus:outline-none dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600"
                     onClick={handleClick}
                 >
                     <span className="sr-only">Open sidebar</span>
