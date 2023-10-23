@@ -26,7 +26,7 @@ function Home() {
         console.log("fetching games...");
         axios
             .get(
-                `https://api.rawg.io/api/games?&dates=${formattedDateStart},${formattedDateEnd}&key=${
+                `https://api.rawg.io/api/games?dates=${formattedDateStart},${formattedDateEnd}&key=${
                     import.meta.env.VITE_RAWG_API_KEY
                 }`
             )

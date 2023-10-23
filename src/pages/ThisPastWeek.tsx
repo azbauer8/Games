@@ -1,9 +1,10 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
+import GameCard from "../components/GameCard";
 
 function ThisPastWeek() {
     const [games, setGames] = useState([]);
-    const dateRange = 90;
+    const dateRange = 7;
 
     function formatDate(date: Date) {
         const year = date.getFullYear();
@@ -18,14 +19,13 @@ function ThisPastWeek() {
     const formattedDateStart = formatDate(dateStart);
 
     const dateEnd = new Date(currentDate);
-    dateEnd.setDate(currentDate.getDate() + dateRange);
     const formattedDateEnd = formatDate(dateEnd);
 
     useEffect(() => {
         console.log("fetching games...");
         axios
             .get(
-                `https://api.rawg.io/api/games?&dates=${formattedDateStart},${formattedDateEnd}&key=${
+                `https://api.rawg.io/api/games?dates=${formattedDateStart},${formattedDateEnd}&key=${
                     import.meta.env.VITE_RAWG_API_KEY
                 }`
             )
@@ -37,19 +37,22 @@ function ThisPastWeek() {
 
     return (
         <main className="p-4 ml-4 sm:ml-64 sm:mt-6">
-            <div className="py-5">
+            <div className="pb-5">
                 <h1 className="text-7xl font-bold pb-5">This past week</h1>
             </div>
-            {games.map((item, i) => {
-                return (
-                    <div key={i}>
-                        <p>
-                            {item["name"]} :: {item["rating"]} ::{" "}
-                            {item["released"]}
-                        </p>
-                    </div>
-                );
-            })}{" "}
+            <div className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4 gap-4 pr-5">
+                {games.map((item, i) => {
+                    return (
+                        <GameCard
+                            key={i}
+                            name={item["name"]}
+                            image={item["background_image"]}
+                            rating={item["rating"]}
+                            released={item["released"]}
+                        />
+                    );
+                })}{" "}
+            </div>
         </main>
     );
 }

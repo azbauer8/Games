@@ -2,38 +2,14 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import GameCard from "../components/GameCard";
 
-function ReleaseCalendar() {
+function AllTimeBest() {
     const [games, setGames] = useState([]);
-
-    function formatDate(date: Date) {
-        const year = date.getFullYear();
-        const month = String(date.getMonth() + 1).padStart(2, "0");
-        const day = String(date.getDate()).padStart(2, "0");
-        return `${year}-${month}-${day}`;
-    }
-
-    const currentDate = new Date();
-    const month = currentDate.toLocaleString("default", { month: "long" });
-    const year = currentDate.getFullYear();
-    const dateStart = new Date(
-        currentDate.getFullYear(),
-        currentDate.getMonth(),
-        1
-    );
-    const formattedDateStart = formatDate(dateStart);
-
-    const dateEnd = new Date(
-        currentDate.getFullYear(),
-        currentDate.getMonth() + 1,
-        0
-    );
-    const formattedDateEnd = formatDate(dateEnd);
 
     useEffect(() => {
         console.log("fetching games...");
         axios
             .get(
-                `https://api.rawg.io/api/games?dates=${formattedDateStart},${formattedDateEnd}&key=${
+                `https://api.rawg.io/api/games?key=${
                     import.meta.env.VITE_RAWG_API_KEY
                 }`
             )
@@ -41,14 +17,12 @@ function ReleaseCalendar() {
                 console.log(data.data.results);
                 setGames(data.data.results);
             });
-    }, [formattedDateEnd, formattedDateStart]);
+    }, []);
 
     return (
         <main className="p-4 ml-4 sm:ml-64 sm:mt-6">
             <div className="pb-5">
-                <h1 className="text-7xl font-bold pb-5">
-                    Release calendar - {month} {year}
-                </h1>
+                <h1 className="text-7xl font-bold pb-5">All time best</h1>
             </div>
             <div className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4 gap-4 pr-5">
                 {games.map((item, i) => {
@@ -67,4 +41,4 @@ function ReleaseCalendar() {
     );
 }
 
-export default ReleaseCalendar;
+export default AllTimeBest;

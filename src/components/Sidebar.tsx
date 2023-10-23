@@ -50,8 +50,8 @@ const Sidebar: React.FC<SidebarProps> = ({ page, setPage }) => {
             isLink: true,
         },
         {
-            id: "allTimeTop250",
-            title: "All time top 250",
+            id: "allTimeBest",
+            title: "Top all time",
             icon: "FaCrown",
             isLink: true,
         },

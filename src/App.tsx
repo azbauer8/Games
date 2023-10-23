@@ -6,7 +6,7 @@ import NextWeek from "./pages/NextWeek";
 import ReleaseCalendar from "./pages/ReleaseCalendar";
 import BestOfThisYear from "./pages/BestOfThisYear";
 import BestOfLastYear from "./pages/BestOfLastYear";
-import AllTimeTop250 from "./pages/AllTimeTop250";
+import AllTimeBest from "./pages/AllTimeBest";
 
 import Sidebar from "./components/Sidebar";
 
@@ -33,8 +33,8 @@ function App() {
                 <BestOfThisYear />
             ) : page.id === "bestOfLastYear" ? (
                 <BestOfLastYear />
-            ) : page.id === "allTimeTop250" ? (
-                <AllTimeTop250 />
+            ) : page.id === "allTimeBest" ? (
+                <AllTimeBest />
             ) : null}
         </>
     );
