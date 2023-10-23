@@ -37,12 +37,12 @@ function Home() {
     }, [formattedDateEnd, formattedDateStart]);
 
     return (
-        <main className="p-4 ml-4 sm:ml-64 sm:mt-6">
+        <main className="p-4 ml-4   sm:mt-6">
             <div className="pb-5">
                 <h1 className="text-7xl font-bold pb-5">New and trending</h1>
                 Based on player counts and release date
             </div>
-            <div className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4 gap-4 pr-5">
+            <div className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4 gap-4">
                 {games.map((item, i) => {
                     return (
                         <GameCard

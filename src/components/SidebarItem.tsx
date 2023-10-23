@@ -17,6 +17,7 @@ interface SidebarItemProps {
     isHeader?: boolean;
     isLink?: boolean;
     isSelected?: boolean;
+    isDialogItem?: boolean;
     setSidebarOpen?: (sidebarOpen: boolean) => void;
 }
 
@@ -28,11 +29,12 @@ const SidebarItem: React.FC<SidebarItemProps> = ({
     isHeader,
     isLink,
     isSelected,
+    isDialogItem,
     setSidebarOpen,
 }) => {
     const handleClick = () => {
         if (setPage) {
-            if (setSidebarOpen) {
+            if (isDialogItem && setSidebarOpen) {
                 setSidebarOpen(false);
             }
             setPage({ id: id, title: title });

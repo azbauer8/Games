@@ -7,7 +7,7 @@ interface GameCardProps {
     released: string;
 }
 
-const SidebarItem: React.FC<GameCardProps> = ({
+const GameCard: React.FC<GameCardProps> = ({
     name,
     image,
     rating,
@@ -42,4 +42,4 @@ const SidebarItem: React.FC<GameCardProps> = ({
 // Game cards should show: Cover image, Title, Rating, Released(?)
 // Clicking on a game should expand its box showing additional info - description, release date, platforms, genres, etc.
 
-export default SidebarItem;
+export default GameCard;
