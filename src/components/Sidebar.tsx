@@ -1,5 +1,6 @@
 import { FaGithub, FaHandPeace } from "react-icons/fa6";
 import SidebarItem from "./SidebarItem";
+import { itemsArray } from "./SidebarItemsList";
 
 interface SidebarProps {
     page: { id: string; title: string };
@@ -7,54 +8,6 @@ interface SidebarProps {
 }
 
 const Sidebar: React.FC<SidebarProps> = ({ page, setPage }) => {
-    const itemsArray = [
-        {
-            id: "home",
-            title: "Home",
-            icon: "FaHouseChimney",
-            isHeader: true,
-            isLink: true,
-        },
-        { id: "newReleases", title: "New Releases", isHeader: true },
-        {
-            id: "last30Days",
-            title: "Last 30 days",
-            icon: "FaStar",
-            isLink: true,
-        },
-        {
-            id: "thisPastWeek",
-            title: "This past week",
-            icon: "FaFire",
-            isLink: true,
-        },
-        { id: "nextWeek", title: "Next week", icon: "FaForward", isLink: true },
-        {
-            id: "releaseCalendar",
-            title: "Release calendar",
-            icon: "FaRegCalendar",
-            isLink: true,
-        },
-        { id: "top", title: "Top", isHeader: true },
-        {
-            id: "bestOfThisYear",
-            title: "Best of this year",
-            icon: "FaTrophy",
-            isLink: true,
-        },
-        {
-            id: "bestOfLastYear",
-            title: "Best of last year",
-            icon: "IoPodium",
-            isLink: true,
-        },
-        {
-            id: "allTimeBest",
-            title: "Top all time",
-            icon: "FaCrown",
-            isLink: true,
-        },
-    ];
     return (
         <>
             <div className="flex flex-col justify-between h-full bg-neutral-900">

@@ -1,3 +1,5 @@
+import { useState } from "react";
+
 import { FaGithub, FaHandPeace } from "react-icons/fa6";
 import {
     Sheet,
@@ -6,65 +8,16 @@ import {
     SheetHeader,
     SheetTrigger,
 } from "@/components/ui/sheet";
-
+import { itemsArray } from "./SidebarItemsList";
 import SidebarItem from "./SidebarItem";
-import { useState } from "react";
 
 const Header = ({ page, setPage }) => {
-    const itemsArray = [
-        {
-            id: "home",
-            title: "Home",
-            icon: "FaHouseChimney",
-            isHeader: true,
-            isLink: true,
-        },
-        { id: "newReleases", title: "New Releases", isHeader: true },
-        {
-            id: "last30Days",
-            title: "Last 30 days",
-            icon: "FaStar",
-            isLink: true,
-        },
-        {
-            id: "thisPastWeek",
-            title: "This past week",
-            icon: "FaFire",
-            isLink: true,
-        },
-        { id: "nextWeek", title: "Next week", icon: "FaForward", isLink: true },
-        {
-            id: "releaseCalendar",
-            title: "Release calendar",
-            icon: "FaRegCalendar",
-            isLink: true,
-        },
-        { id: "top", title: "Top", isHeader: true },
-        {
-            id: "bestOfThisYear",
-            title: "Best of this year",
-            icon: "FaTrophy",
-            isLink: true,
-        },
-        {
-            id: "bestOfLastYear",
-            title: "Best of last year",
-            icon: "IoPodium",
-            isLink: true,
-        },
-        {
-            id: "allTimeBest",
-            title: "Top all time",
-            icon: "FaCrown",
-            isLink: true,
-        },
-    ];
     const [sidebarOpen, setSidebarOpen] = useState(false);
     return (
-        <nav className="flex items-center rounded-lg justify-between w-full py-2.5 px-6 bg-clip-padding backdrop-filter backdrop-blur-3xl bg-opacity-100">
+        <nav className="flex items-center rounded-lg justify-between w-full py-2.5 px-6 pl-4 bg-clip-padding backdrop-filter backdrop-blur-3xl bg-opacity-100">
             <Sheet open={sidebarOpen} onOpenChange={setSidebarOpen}>
                 <SheetTrigger asChild>
-                    <button className="p-2 mt-2 text-sm text-neutral-500 hover:text-white rounded-lg">
+                    <button className="p-2 mt-2 text-sm text-neutral-400 hover:text-white rounded-lg">
                         <span className="sr-only">Open sidebar</span>
                         <svg
                             className="w-8 h-8"
@@ -118,10 +71,10 @@ const Header = ({ page, setPage }) => {
             </Sheet>
             <div className="flex flex-row space-x-8 pt-1">
                 <a href="https://zachbauer.me">
-                    <FaHandPeace className="h-8 w-8 text-neutral-500 hover:text-white rounded-lg" />
+                    <FaHandPeace className="h-8 w-8 text-neutral-400 hover:text-white rounded-lg" />
                 </a>
                 <a href="https://github.com/azbauer8/Games">
-                    <FaGithub className="h-8 w-8 text-neutral-500 hover:text-white rounded-lg" />
+                    <FaGithub className="h-8 w-8 text-neutral-400 hover:text-white rounded-lg" />
                 </a>
             </div>
         </nav>
