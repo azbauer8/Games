@@ -40,7 +40,7 @@ const Header = ({ page, setPage }) => {
                 >
                     <SheetHeader>
                         <SheetDescription>
-                            <ul className="pl-2 space-y-2 font-medium">
+                            <div className="pl-2 space-y-2 font-medium">
                                 {itemsArray.map((item) => (
                                     <SidebarItem
                                         key={item.id}
@@ -64,7 +64,7 @@ const Header = ({ page, setPage }) => {
                                         setSidebarOpen={setSidebarOpen}
                                     />
                                 ))}
-                            </ul>
+                            </div>
                         </SheetDescription>
                     </SheetHeader>
                 </SheetContent>

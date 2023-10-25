@@ -43,7 +43,7 @@ const SidebarItem: React.FC<SidebarItemProps> = ({
 
     if (isHeader && isLink) {
         return (
-            <li>
+            <div>
                 <a
                     href="#"
                     className="flex items-center p-2 text-white rounded-lg hover:text-neutral-500 group"
@@ -51,19 +51,19 @@ const SidebarItem: React.FC<SidebarItemProps> = ({
                 >
                     <span className="text-3xl font-bold">{title}</span>
                 </a>
-            </li>
+            </div>
         );
     } else if (isHeader) {
         return (
-            <li>
+            <div>
                 <span className="flex items-center p-2 text-xl text-white rounded-lg group">
                     {title}
                 </span>
-            </li>
+            </div>
         );
     } else if (isLink) {
         return (
-            <li>
+            <div>
                 <a
                     href="#"
                     className="flex items-center p-2 text-white rounded-lg group"
@@ -122,7 +122,7 @@ const SidebarItem: React.FC<SidebarItemProps> = ({
                         {title}
                     </span>
                 </a>
-            </li>
+            </div>
         );
     } else {
         return null;
