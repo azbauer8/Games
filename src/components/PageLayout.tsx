@@ -6,8 +6,8 @@ import Loader from "../components/Loader";
 const PageLayout = ({ page }) => {
   const [games, setGames] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
-  const [hasMore, setHasMore] = useState(true);
-  const [index, setIndex] = useState(2);
+  // const [hasMore, setHasMore] = useState(true);
+  // const [index, setIndex] = useState(2);
   // const [error, setError] = useState(null);
   let formattedDateStart = "";
   let formattedDateEnd = "";
@@ -90,8 +90,8 @@ const PageLayout = ({ page }) => {
           console.log(data);
           setGames(data.data.results);
           setIsLoading(false);
-          setIndex(2);
-          setHasMore(true);
+          // setIndex(2);
+          // setHasMore(true);
         }
       });
     return () => {
@@ -99,24 +99,24 @@ const PageLayout = ({ page }) => {
     };
   }, [formattedDateEnd, formattedDateStart]);
 
-  const fetchMoreData = () => {
-    console.log("fetching more games...");
-    axios
-      .get(
-        `https://api.rawg.io/api/games?dates=${formattedDateStart},${formattedDateEnd}&page=${index}&key=${
-          import.meta.env.VITE_RAWG_API_KEY
-        }`
-      )
-      .then((res) => {
-        console.log("adding games: ", res.data);
-        setGames((prevGames) => prevGames.concat(res.data.results));
+  // const fetchMoreData = () => {
+  //   console.log("fetching more games...");
+  //   axios
+  //     .get(
+  //       `https://api.rawg.io/api/games?dates=${formattedDateStart},${formattedDateEnd}&page=${index}&key=${
+  //         import.meta.env.VITE_RAWG_API_KEY
+  //       }`
+  //     )
+  //     .then((res) => {
+  //       console.log("adding games: ", res.data);
+  //       setGames((prevGames) => prevGames.concat(res.data.results));
 
-        res.data.results.length > 0 ? setHasMore(true) : setHasMore(false);
-      })
-      .catch((err) => console.log(err));
+  //       res.data.results.length > 0 ? setHasMore(true) : setHasMore(false);
+  //     })
+  //     .catch((err) => console.log(err));
 
-    setIndex((prevIndex) => prevIndex + 1);
-  };
+  //   setIndex((prevIndex) => prevIndex + 1);
+  // };
 
   return (
     <main className="sm:mt-6 sm:p-4">
