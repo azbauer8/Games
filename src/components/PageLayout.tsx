@@ -137,6 +137,7 @@ const PageLayout = ({ page }) => {
                 image={item["background_image"]}
                 rating={item["rating"]}
                 released={item["released"]}
+                platforms={item["platforms"]}
               />
             );
           })
