@@ -37,9 +37,7 @@ export default function Games() {
 
   return (
     <>
-      {pages.includes(currentPage) ||
-      currentPage === "" ||
-      currentPage === "/" ? (
+      {pages.includes(currentPage) ? (
         <>
           <div className="pb-5 space-y-2">
             <h1 className="text-4xl font-bold text-center md:text-7xl md:pb-5 md:text-left">
@@ -62,9 +60,13 @@ export default function Games() {
               : null}
           </div>
         </>
-      ) : (
-        <h1 className="pageTitle">{`You're lost, partner`}</h1>
-      )}
+      ) : !currentPage ? (
+        <div className="pb-5 space-y-2">
+          <h1 className="text-4xl font-bold text-center md:text-7xl md:pb-5 md:text-left">
+            Top Picks
+          </h1>
+        </div>
+      ) : null}
     </>
   );
 }
