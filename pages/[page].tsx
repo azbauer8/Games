@@ -39,8 +39,6 @@ export default function Games() {
 
   // Update fetchedData when data changes
   useEffect(() => {
-    console.log(pageNum);
-    console.log("use effect running");
     if (isSuccess && data) {
       setFetchedData((prevData) => [...prevData, ...data.results]);
     }
@@ -61,8 +59,6 @@ export default function Games() {
     setFetchedData([]);
     setPageNum(1);
   }, [router.asPath, setPageNum]);
-
-  console.log("data", data, "fetched data", fetchedData, "page", pageNum);
 
   return (
     <>
