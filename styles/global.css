@@ -1,0 +1,11 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  @apply bg-neutral-900 text-white;
+}
+
+.pageTitle {
+  @apply text-4xl font-bold text-center sm:text-7xl pb-5 sm:text-left;
+}
