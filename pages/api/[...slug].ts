@@ -69,9 +69,11 @@ export default async function handler(
       .then((data) => {
         res.json(data.data);
       })
-      .catch((error) => console.log(error));
+      .catch((error) => {
+        res.status(500).json({ error: error.message });
+      });
   } else {
-    res.end(`${slug}`);
+    res.status(400).json({ error: "Invalid request" });
   }
 }
 
