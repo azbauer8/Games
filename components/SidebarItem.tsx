@@ -28,6 +28,8 @@ const SidebarItem: React.FC<SidebarItemProps> = ({
 }) => {
   const { setSidebarOpen } = globalState();
   const router = useRouter();
+  const currentPage = router.query.page as string;
+  url = url?.substring(1);
 
   if (isHeader && isLink) {
     return (
@@ -55,43 +57,43 @@ const SidebarItem: React.FC<SidebarItemProps> = ({
         {icon === "FaStar" ? (
           <FaStar
             className={`flex-shrink-0 w-5 h-5 ${
-              router.pathname === url ? "text-white" : "text-neutral-500"
+              currentPage === url ? "text-white" : "text-neutral-500"
             } transition duration-75 group-hover:text-white`}
           />
         ) : icon === "FaFire" ? (
           <FaFire
             className={`flex-shrink-0 w-5 h-5 ${
-              router.pathname === url ? "text-white" : "text-neutral-500"
+              currentPage === url ? "text-white" : "text-neutral-500"
             } transition duration-75 group-hover:text-white`}
           />
         ) : icon === "FaForward" ? (
           <FaForward
             className={`flex-shrink-0 w-5 h-5 ${
-              router.pathname === url ? "text-white" : "text-neutral-500"
+              currentPage === url ? "text-white" : "text-neutral-500"
             } transition duration-75 group-hover:text-white`}
           />
         ) : icon === "FaRegCalendar" ? (
           <FaRegCalendar
             className={`flex-shrink-0 w-5 h-5 ${
-              router.pathname === url ? "text-white" : "text-neutral-500"
+              currentPage === url ? "text-white" : "text-neutral-500"
             } transition duration-75 group-hover:text-white`}
           />
         ) : icon === "FaTrophy" ? (
           <FaTrophy
             className={`flex-shrink-0 w-5 h-5 ${
-              router.pathname === url ? "text-white" : "text-neutral-500"
+              currentPage === url ? "text-white" : "text-neutral-500"
             } transition duration-75 group-hover:text-white`}
           />
         ) : icon === "IoPodium" ? (
           <IoPodium
             className={`flex-shrink-0 w-5 h-5 ${
-              router.pathname === url ? "text-white" : "text-neutral-500"
+              currentPage === url ? "text-white" : "text-neutral-500"
             } transition duration-75 group-hover:text-white`}
           />
         ) : icon === "FaCrown" ? (
           <FaCrown
             className={`flex-shrink-0 w-5 h-5 ${
-              router.pathname === url ? "text-white" : "text-neutral-500"
+              currentPage === url ? "text-white" : "text-neutral-500"
             } transition duration-75 group-hover:text-white`}
           />
         ) : null}
