@@ -16,7 +16,7 @@ function Sidebar() {
     );
   }
   return (
-    <div className="hidden sm:flex flex-col justify-between h-full bg-neutral-900">
+    <div className="hidden md:flex flex-col justify-between h-full bg-neutral-900 w-64 sticky top-0">
       <SidebarContents />
     </div>
   );
@@ -24,7 +24,7 @@ function Sidebar() {
 
 function SidebarContents() {
   return (
-    <div className="flex flex-col justify-between h-screen fixed top-0 left-0 overflow-y-auto w-56">
+    <div className="flex flex-col justify-between h-screen overflow-y-auto w-56">
       <div className="px-6 py-4 pt-16">
         <ul className="space-y-2 font-medium">
           {itemsArray.map((item) => (
@@ -43,10 +43,10 @@ function SidebarContents() {
       </div>
       <div className="flex justify-center space-x-5 py-8">
         <a href="https://zachbauer.me">
-          <FaHandPeace className="h-7 w-7 sm:h-8 sm:w-8 text-white hover:text-neutral-500" />
+          <FaHandPeace className="h-7 w-7 md:h-8 md:w-8 text-white hover:text-neutral-500" />
         </a>
         <a href="https://github.com/azbauer8/Games">
-          <FaGithub className="h-7 w-7 sm:h-8 sm:w-8 text-white hover:text-neutral-500" />
+          <FaGithub className="h-7 w-7 md:h-8 md:w-8 text-white hover:text-neutral-500" />
         </a>
       </div>
     </div>

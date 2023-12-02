@@ -3,10 +3,10 @@ import Header from "@/components/Header";
 
 function Layout({ children }: { children: React.ReactNode }) {
   return (
-    <div className="flex flex-col sm:flex-row">
+    <div className="flex flex-col md:flex-row mx-auto max-w-[115rem]">
       <Header />
       <Sidebar />
-      <main className="sm:ml-56 p-5 pt-8 sm:pt-12 sm:pl-0">{children}</main>
+      <main className=" p-5 pt-8 md:pt-12 flex-auto">{children}</main>
     </div>
   );
 }

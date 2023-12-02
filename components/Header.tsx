@@ -7,7 +7,7 @@ import globalState from "@/lib/globalState";
 const Header = () => {
   const { sidebarOpen, setSidebarOpen } = globalState();
   return (
-    <nav className="sm:hidden sticky top-0 z-50 flex p-3 items-center justify-between bg-clip-padding backdrop-filter backdrop-blur-3xl">
+    <nav className="md:hidden sticky top-0 z-50 flex p-3 items-center justify-between bg-clip-padding backdrop-filter backdrop-blur-3xl">
       <GiHamburgerMenu
         className="text-neutral-400 hover:text-white h-6 w-6 cursor-pointer"
         onClick={() => setSidebarOpen(true)}

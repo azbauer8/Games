@@ -22,15 +22,17 @@ const GameCard: React.FC<GameCardProps> = ({
   });
 
   return (
-    <div className="bg-[#202020] rounded-lg">
-      <Image
-        src={image !== null ? image : placeholder}
-        alt={name}
-        width={870}
-        height={1160}
-        placeholder="empty"
-        className="object-contain h-auto max-w-full rounded-t-lg"
-      />
+    <div className="bg-[#202020] rounded-lg w-full">
+      <div className="h-52 relative">
+        <Image
+          src={image ? image : placeholder}
+          alt={name}
+          layout="fill"
+          objectFit="cover"
+          objectPosition="center"
+          className="rounded-t-lg"
+        />
+      </div>
       <div className="p-3 ">
         <div className="pb-2 w-full flex justify-between">
           <div className="flex justify-center items-center space-x-1">

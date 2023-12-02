@@ -7,5 +7,5 @@ body {
 }
 
 .pageTitle {
-  @apply text-4xl font-bold text-center sm:text-7xl pb-5 sm:text-left;
+  @apply text-4xl font-bold text-center md:text-7xl pb-5 md:text-left;
 }
