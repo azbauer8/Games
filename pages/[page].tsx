@@ -50,6 +50,7 @@ export default function Games() {
                   <div key={index}>
                     <GameCard
                       key={index}
+                      slug={item["slug"]}
                       name={item["name"]}
                       image={item["background_image"]}
                       rating={item["rating"]}
