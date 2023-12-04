@@ -76,6 +76,11 @@ export default async function handler(
     res.status(400).json({ error: "Invalid request" });
   }
 }
+export const config = {
+  api: {
+    externalResolver: true,
+  },
+};
 
 function formatDate(date: Date) {
   const year = date.getFullYear();
