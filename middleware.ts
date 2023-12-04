@@ -1,12 +1,11 @@
 import { NextResponse } from "next/server";
 import type { NextRequest } from "next/server";
 
-// This function can be marked `async` if using `await` inside
+// redirects root url to /TopPicks
 export function middleware(request: NextRequest) {
   return NextResponse.redirect(new URL("/TopPicks", request.url));
 }
 
-// See "Matching Paths" below to learn more
 export const config = {
   matcher: "/",
 };
