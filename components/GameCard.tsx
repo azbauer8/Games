@@ -26,7 +26,6 @@ const GameCard: React.FC<GameCardProps> = React.memo(
             <Image
               src={image ? image : placeholder}
               alt={name}
-              priority
               fill
               sizes="(max-width: 640px) 100vw, (max-width: 1024px) 100vw, 100vw"
               style={{
