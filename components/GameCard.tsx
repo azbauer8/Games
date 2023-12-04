@@ -27,6 +27,7 @@ const GameCard: React.FC<GameCardProps> = React.memo(
               src={image ? image : placeholder}
               alt={name}
               fill
+              loading="lazy"
               sizes="(max-width: 640px) 100vw, (max-width: 1024px) 100vw, 100vw"
               style={{
                 objectFit: "cover",
