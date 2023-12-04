@@ -7,7 +7,7 @@ export default async function fetchApi(pageTitle: string, pageNum: number) {
     const data = await response.json();
     return data;
   } catch (error) {
-    console.error("Error fetching LastFM data:", error);
+    console.error("Error fetching game data:", error);
     return;
   }
 }

@@ -1,0 +1,67 @@
+[
+  {
+    "title": "Top Picks",
+    "isLink": true,
+    "isHeader": true,
+    "url": "/TopPicks"
+  },
+
+  {
+    "title": "New Releases",
+    "isHeader": true
+  },
+
+  {
+    "title": "Last 30 days",
+    "icon": "FaStar",
+    "isLink": true,
+    "url": "/Last30Days"
+  },
+
+  {
+    "title": "This past week",
+    "icon": "FaFire",
+    "isLink": true,
+    "url": "/ThisPastWeek"
+  },
+
+  {
+    "title": "Next week",
+    "icon": "FaForward",
+    "isLink": true,
+    "url": "/NextWeek"
+  },
+
+  {
+    "title": "This month",
+    "icon": "FaRegCalendar",
+    "isLink": true,
+    "url": "/ThisMonth"
+  },
+
+  {
+    "title": "Top",
+    "isHeader": true
+  },
+
+  {
+    "title": "Best of this year",
+    "icon": "FaTrophy",
+    "isLink": true,
+    "url": "/BestOfThisYear"
+  },
+
+  {
+    "title": "Best of last year",
+    "icon": "IoPodium",
+    "isLink": true,
+    "url": "/BestOfLastYear"
+  },
+
+  {
+    "title": "Top all time",
+    "icon": "FaCrown",
+    "isLink": true,
+    "url": "/AllTimeBest"
+  }
+]

@@ -1,1 +1,2 @@
 TODO: Fix load more button re-rendering entire grid instead of just rendering new cards. This works sometimes, but it's pretty rare. Either has something to do with GameCard key changing/duplicating when fetching more data, or some state change causing the whole data.map code block to re-run
+Look into using infinite query for fetching more data instead of current janky approach.

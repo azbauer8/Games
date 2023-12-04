@@ -1,24 +1,22 @@
 import { FaGithub, FaHandPeace } from "react-icons/fa6";
-import SidebarItem from "./SidebarItem";
+import SidebarItem from "@/components/sidebar/SidebarItem";
 import globalState from "@/lib/globalState";
-
+import itemsArray from "./SidebarItems.json";
 import { Sheet, SheetContent } from "@/components/ui/sheet";
 
 function Sidebar() {
   const { sidebarOpen, setSidebarOpen } = globalState();
-  if (sidebarOpen) {
-    return (
+  return (
+    <>
       <Sheet open={sidebarOpen} onOpenChange={setSidebarOpen}>
         <SheetContent side={"left"} className="w-56 py-4 px-1">
           <SidebarContents />
         </SheetContent>
       </Sheet>
-    );
-  }
-  return (
-    <div className="hidden md:flex flex-col justify-between h-full bg-neutral-900 w-64 sticky top-0">
-      <SidebarContents />
-    </div>
+      <div className="hidden md:flex flex-col justify-between h-full bg-neutral-900 w-64 sticky top-0">
+        <SidebarContents />
+      </div>
+    </>
   );
 }
 
@@ -53,51 +51,4 @@ function SidebarContents() {
   );
 }
 
-export const itemsArray = [
-  {
-    title: "Top Picks",
-    isHeader: true,
-    isLink: true,
-    url: "/TopPicks",
-  },
-  { title: "New Releases", isHeader: true },
-  {
-    title: "Last 30 days",
-    icon: "FaStar",
-    isLink: true,
-    url: "/Last30Days",
-  },
-  {
-    title: "This past week",
-    icon: "FaFire",
-    isLink: true,
-    url: "/ThisPastWeek",
-  },
-  { title: "Next week", icon: "FaForward", isLink: true, url: "/NextWeek" },
-  {
-    title: "This month",
-    icon: "FaRegCalendar",
-    isLink: true,
-    url: "/ThisMonth",
-  },
-  { id: "top", title: "Top", isHeader: true },
-  {
-    title: "Best of this year",
-    icon: "FaTrophy",
-    isLink: true,
-    url: "/BestOfThisYear",
-  },
-  {
-    title: "Best of last year",
-    icon: "IoPodium",
-    isLink: true,
-    url: "/BestOfLastYear",
-  },
-  {
-    title: "Top all time",
-    icon: "FaCrown",
-    isLink: true,
-    url: "/AllTimeBest",
-  },
-];
 export default Sidebar;
