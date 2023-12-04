@@ -1,4 +1,4 @@
-import { FaRegCalendar, FaStar } from "react-icons/fa6";
+import { Icon } from "@iconify/react";
 import Image from "next/image";
 import placeholder from "../public/placeholder.png";
 import React from "react";
@@ -39,11 +39,11 @@ const GameCard: React.FC<GameCardProps> = React.memo(
           <div className="p-3 ">
             <div className="pb-2 w-full flex justify-between">
               <div className="flex justify-center items-center space-x-1">
-                <FaRegCalendar className="align-middle" />
+                <Icon icon="fa6-regular:calendar" className="align-middle" />
                 <p>{formattedReleased}</p>
               </div>
               <div className="flex justify-center items-center space-x-1">
-                <FaStar className="align-middle" />
+                <Icon icon="fa6-solid:star" className="align-middle" />
                 <p className="">{Math.round(rating * 10) / 10}</p>
               </div>
             </div>

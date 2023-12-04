@@ -1,6 +1,7 @@
 import { useRouter } from "next/router";
 import Games from "@/components/pages/Games";
 import NotFound from "@/components/pages/Not-Found";
+import Head from "next/head";
 
 const pages = [
   "TopPicks",
@@ -30,7 +31,21 @@ export default function Page() {
   const pageTitle = insertSpaces(currentPage);
 
   if (pages.includes(currentPage)) {
-    return <Games currentPage={currentPage} pageTitle={pageTitle} />;
+    return (
+      <>
+        <Head>
+          <title>{pageTitle}</title>
+        </Head>
+        <Games currentPage={currentPage} pageTitle={pageTitle} />
+      </>
+    );
   }
-  return <NotFound />;
+  return (
+    <>
+      <Head>
+        <title>Page Not Found</title>
+      </Head>
+      <NotFound />
+    </>
+  );
 }

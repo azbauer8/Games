@@ -1,4 +1,4 @@
-import { FaGithub, FaHandPeace } from "react-icons/fa6";
+import { Icon } from "@iconify/react";
 import SidebarItem from "@/components/sidebar/SidebarItem";
 import globalState from "@/lib/globalState";
 import itemsArray from "./SidebarItems.json";
@@ -41,10 +41,16 @@ function SidebarContents() {
       </div>
       <div className="flex justify-center space-x-5 py-8">
         <a href="https://zachbauer.me">
-          <FaHandPeace className="h-7 w-7 md:h-8 md:w-8 text-white hover:text-neutral-500" />
+          <Icon
+            icon="fa6-solid:hand-peace"
+            className="h-7 w-7 md:h-8 md:w-8 text-white hover:text-neutral-500"
+          />
         </a>
         <a href="https://github.com/azbauer8/Games">
-          <FaGithub className="h-7 w-7 md:h-8 md:w-8 text-white hover:text-neutral-500" />
+          <Icon
+            icon="fa-brands:github"
+            className="h-7 w-7 md:h-8 md:w-8 text-white hover:text-neutral-500"
+          />
         </a>
       </div>
     </div>

@@ -13,28 +13,28 @@
 
   {
     "title": "Last 30 days",
-    "icon": "FaStar",
+    "icon": "fa6-solid:star",
     "isLink": true,
     "url": "/Last30Days"
   },
 
   {
     "title": "This past week",
-    "icon": "FaFire",
+    "icon": "fa6-solid:fire",
     "isLink": true,
     "url": "/ThisPastWeek"
   },
 
   {
     "title": "Next week",
-    "icon": "FaForward",
+    "icon": "fa6-solid:forward",
     "isLink": true,
     "url": "/NextWeek"
   },
 
   {
     "title": "This month",
-    "icon": "FaRegCalendar",
+    "icon": "fa6-regular:calendar",
     "isLink": true,
     "url": "/ThisMonth"
   },
@@ -46,21 +46,21 @@
 
   {
     "title": "Best of this year",
-    "icon": "FaTrophy",
+    "icon": "fa6-solid:trophy",
     "isLink": true,
     "url": "/BestOfThisYear"
   },
 
   {
     "title": "Best of last year",
-    "icon": "IoPodium",
+    "icon": "ion:podium",
     "isLink": true,
     "url": "/BestOfLastYear"
   },
 
   {
     "title": "Top all time",
-    "icon": "FaCrown",
+    "icon": "fa6-solid:crown",
     "isLink": true,
     "url": "/AllTimeBest"
   }
