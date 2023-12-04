@@ -1,4 +1,3 @@
-import fetchApi from "@/lib/fetchApi";
 import { useInfiniteQuery } from "@tanstack/react-query";
 import GameCard from "@/components/GameCard";
 import Loader from "@/components/ui/loader";
@@ -14,6 +13,20 @@ const pages = [
   "BestOfLastYear",
   "AllTimeBest",
 ];
+
+async function fetchApi(pageTitle: string, pageNum: number) {
+  try {
+    const response = await fetch(`/api/${pageTitle}/${pageNum}`);
+    if (!response.ok) {
+      throw new Error("Network response was not ok");
+    }
+    const data = await response.json();
+    return data;
+  } catch (error) {
+    console.error("Error fetching game data:", error);
+    return;
+  }
+}
 
 export default function Games({
   currentPage,

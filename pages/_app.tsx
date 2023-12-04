@@ -4,7 +4,7 @@ import "@/styles/global.css";
 import { useEffect } from "react";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 
-function Games({ Component, pageProps }: AppProps) {
+function App({ Component, pageProps }: AppProps) {
   useEffect(() => {
     document.documentElement.classList.add("dark");
   }, []);
@@ -17,4 +17,4 @@ function Games({ Component, pageProps }: AppProps) {
     </QueryClientProvider>
   );
 }
-export default Games;
+export default App;
