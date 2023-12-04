@@ -22,7 +22,7 @@ function Sidebar() {
 
 function SidebarContents() {
   return (
-    <div className="flex flex-col justify-between h-screen overflow-y-auto w-56">
+    <div className="flex flex-col h-screen overflow-y-auto w-56">
       <div className="px-6 py-4 pt-16">
         <ul className="space-y-2 font-medium">
           {itemsArray.map((item) => (
