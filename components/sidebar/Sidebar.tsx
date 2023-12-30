@@ -1,17 +1,18 @@
 import { Icon } from "@iconify/react";
 import SidebarItem from "@/components/sidebar/SidebarItem";
 import globalState from "@/lib/globalState";
-import itemsArray from "./SidebarItems.json";
+import sidebarItems from "./SidebarItems.json";
+import drawerItems from "./DrawerItems.json";
 import { ScrollArea } from "@/components/ui/scroll-area";
 import { Drawer, DrawerContent } from "@/components/ui/drawer";
-import DrawerItem from "./DrawerItem";
+import { DrawerHeader, DrawerTitle, DrawerLink } from "./DrawerItem";
 
 function Sidebar() {
   const { sidebarOpen, setSidebarOpen } = globalState();
   return (
     <>
       <Drawer open={sidebarOpen} onOpenChange={setSidebarOpen}>
-        <DrawerContent className="mx-auto w-full ">
+        <DrawerContent className="mx-auto w-full outline-none focus:outline-none h-1/2 sm:h-[45vh]">
           <DrawerContents />
         </DrawerContent>
       </Drawer>
@@ -27,7 +28,7 @@ function SidebarContents() {
     <div className="flex flex-col h-screen overflow-y-auto w-56">
       <div className="px-6 py-4 pt-16">
         <ul className="space-y-2 font-medium">
-          {itemsArray.map((item) => (
+          {sidebarItems.map((item) => (
             <SidebarItem
               key={item.title}
               title={item.title}
@@ -62,22 +63,42 @@ function SidebarContents() {
 function DrawerContents() {
   return (
     <>
-      <ScrollArea className="h-[50vh] py-4 ">
-        <div className="font-medium space-y-2 px-4">
-          {itemsArray.map((item) => (
-            <DrawerItem
-              key={item.title}
-              title={item.title}
-              {...(item.icon && { icon: item.icon })}
-              {...(item.isHeader && {
-                isHeader: item.isHeader,
+      <div className="px-5 pt-5 space-y-2 max-w-3xl mx-auto">
+        <DrawerTitle title={drawerItems[0].title} url={drawerItems[0].url} />
+        <div className="flex flex-col sm:flex-row space-x-0 sm:space-x-4">
+          <div className="w-full sm:w-1/2">
+            <DrawerHeader title={drawerItems[1].title} />
+            <div className="grid grid-cols-2 gap-2">
+              {drawerItems[1].children?.map((link) => {
+                return (
+                  <DrawerLink
+                    key={link.title}
+                    title={link.title}
+                    icon={link.icon}
+                    url={link.url}
+                  />
+                );
               })}
-              {...(item.isLink && { isLink: item.isLink })}
-              {...(item.url && { url: item.url })}
-            />
-          ))}
+            </div>
+          </div>
+          <div className="w-full sm:w-1/2">
+            <DrawerHeader title={drawerItems[2].title} />
+            <div className="grid grid-cols-2 gap-2">
+              {" "}
+              {drawerItems[2].children?.map((link) => {
+                return (
+                  <DrawerLink
+                    key={link.title}
+                    title={link.title}
+                    icon={link.icon}
+                    url={link.url}
+                  />
+                );
+              })}
+            </div>
+          </div>
         </div>
-      </ScrollArea>
+      </div>
       <a href="https://zachbauer.me" className="bottom-6 right-[84px] fixed">
         <Icon
           icon="fa6-solid:hand-peace"
