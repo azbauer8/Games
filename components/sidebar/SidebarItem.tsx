@@ -3,62 +3,84 @@ import Link from "next/link";
 import { Icon } from "@iconify/react";
 import { useRouter } from "next/router";
 
-interface SidebarItemProps {
-  title: string;
-  icon?: string;
-  isHeader?: boolean;
-  isLink?: boolean;
+export const SidebarTitle = ({
+  url,
+  title,
+  isDrawer,
+}: {
   url?: string;
-}
+  title: string;
+  isDrawer?: boolean;
+}) => {
+  const { setSidebarOpen } = globalState();
+  return (
+    <Link
+      href={url ? url : "/TopPicks"}
+      className={`flex items-center ${
+        isDrawer ? "py-2" : "p-2"
+      } text-white rounded-lg hover:text-neutral-500 group`}
+      onClick={() => setSidebarOpen(false)}
+    >
+      <span className={`${isDrawer ? "text-4xl" : "text-3xl"} font-bold`}>
+        {title}
+      </span>
+    </Link>
+  );
+};
 
-const SidebarItem: React.FC<SidebarItemProps> = ({
+export const SidebarHeader = ({
+  title,
+  isDrawer,
+}: {
+  title: string;
+  isDrawer?: boolean;
+}) => {
+  return (
+    <span
+      className={`flex items-center p-2 ${
+        isDrawer ? "text-lg" : "text-xl"
+      } text-white rounded-lg group`}
+    >
+      {title}
+    </span>
+  );
+};
+
+export const SidebarLink = ({
+  url,
   title,
   icon,
-  isHeader,
-  isLink,
-  url,
+  isDrawer,
+}: {
+  url?: string;
+  title: string;
+  icon: string;
+  isDrawer?: boolean;
 }) => {
   const { setSidebarOpen } = globalState();
   const router = useRouter();
   const currentPage = router.query.page as string;
   url = url?.substring(1);
+  return (
+    <Link
+      href={url ? url : "/TopPicks"}
+      className={`flex items-center ${
+        isDrawer ? "py-3 px-4 bg-neutral-800" : "p-2"
+      } text-white rounded-lg group`}
+      onClick={() => setSidebarOpen(false)}
+    >
+      <Icon
+        icon={icon ? icon : ""}
+        className={`flex-shrink-0 w-5 h-5 ${
+          currentPage === url ? "text-white" : "text-neutral-500"
+        } transition duration-75 group-hover:text-white`}
+      />
 
-  if (isHeader && isLink) {
-    return (
-      <Link
-        href={url ? url : "/TopPicks"}
-        className="flex items-center p-2 text-white rounded-lg hover:text-neutral-500 group"
-        onClick={() => setSidebarOpen(false)}
+      <span
+        className={`flex-1 ${isDrawer ? "ml-2" : "ml-3"} whitespace-nowrap`}
       >
-        <span className="text-3xl font-bold">{title}</span>
-      </Link>
-    );
-  } else if (isHeader) {
-    return (
-      <span className="flex items-center p-2 text-xl text-white rounded-lg group">
         {title}
       </span>
-    );
-  } else if (isLink) {
-    return (
-      <Link
-        href={url ? url : "/TopPicks"}
-        className="flex items-center p-2 text-white rounded-lg group"
-        onClick={() => setSidebarOpen(false)}
-      >
-        <Icon
-          icon={icon ? icon : ""}
-          className={`flex-shrink-0 w-5 h-5 ${
-            currentPage === url ? "text-white" : "text-neutral-500"
-          } transition duration-75 group-hover:text-white`}
-        />
-
-        <span className="flex-1 ml-3 whitespace-nowrap">{title}</span>
-      </Link>
-    );
-  } else {
-    return null;
-  }
+    </Link>
+  );
 };
-
-export default SidebarItem;

@@ -1,67 +1,66 @@
 [
   {
     "title": "Top Picks",
-    "isLink": true,
-    "isHeader": true,
-    "url": "/TopPicks"
+    "url": "/TopPicks",
+    "type": "Title"
   },
-
   {
     "title": "New Releases",
-    "isHeader": true
-  },
+    "type": "Header",
+    "children": [
+      {
+        "title": "Last 30 days",
+        "icon": "fa6-solid:star",
+        "url": "/Last30Days",
+        "type": "Link"
+      },
+      {
+        "title": "Past week",
+        "icon": "fa6-solid:fire",
+        "url": "/ThisPastWeek",
+        "type": "Link"
+      },
 
-  {
-    "title": "Last 30 days",
-    "icon": "fa6-solid:star",
-    "isLink": true,
-    "url": "/Last30Days"
-  },
+      {
+        "title": "Next week",
+        "icon": "fa6-solid:forward",
+        "url": "/NextWeek",
+        "type": "Link"
+      },
 
-  {
-    "title": "This past week",
-    "icon": "fa6-solid:fire",
-    "isLink": true,
-    "url": "/ThisPastWeek"
-  },
-
-  {
-    "title": "Next week",
-    "icon": "fa6-solid:forward",
-    "isLink": true,
-    "url": "/NextWeek"
-  },
-
-  {
-    "title": "This month",
-    "icon": "fa6-regular:calendar",
-    "isLink": true,
-    "url": "/ThisMonth"
+      {
+        "title": "This month",
+        "icon": "fa6-regular:calendar",
+        "url": "/ThisMonth",
+        "type": "Link"
+      }
+    ]
   },
 
   {
     "title": "Top",
-    "isHeader": true
-  },
+    "type": "Header",
+    "children": [
+      {
+        "title": "This year",
+        "icon": "fa6-solid:trophy",
+        "url": "/BestOfThisYear",
+        "type": "Link"
+      },
 
-  {
-    "title": "Best of this year",
-    "icon": "fa6-solid:trophy",
-    "isLink": true,
-    "url": "/BestOfThisYear"
-  },
+      {
+        "title": "Last year",
+        "icon": "ion:podium",
+        "url": "/BestOfLastYear",
+        "type": "Link"
+      },
 
-  {
-    "title": "Best of last year",
-    "icon": "ion:podium",
-    "isLink": true,
-    "url": "/BestOfLastYear"
-  },
-
-  {
-    "title": "Top all time",
-    "icon": "fa6-solid:crown",
-    "isLink": true,
-    "url": "/AllTimeBest"
+      {
+        "title": "All time",
+        "icon": "fa6-solid:crown",
+        "url": "/AllTimeBest",
+        "type": "Link"
+      }
+    ]
   }
 ]
