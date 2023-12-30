@@ -1,7 +1,8 @@
 import { Icon } from "@iconify/react";
 import Image from "next/image";
-import placeholder from "../public/placeholder.png";
+import placeholder from "../../../public/placeholder.png";
 import React from "react";
+import Link from "next/link";
 
 interface GameCardProps {
   slug: string;
@@ -20,9 +21,9 @@ const GameCard: React.FC<GameCardProps> = React.memo(
     });
 
     return (
-      <a href={`https://rawg.io/games/${slug}`}>
+      <Link href={`/game/${slug}`}>
         <div className="bg-[#202020] rounded-lg w-full transform transition duration-200 ease-in-out group">
-          <div className="h-52 relative overflow-hidden">
+          <div className="h-52 relative overflow-hidden rounded-lg">
             <Image
               src={image ? image : placeholder}
               alt={name}
@@ -52,7 +53,7 @@ const GameCard: React.FC<GameCardProps> = React.memo(
             <h1 className="pb-2 text-2xl font-bold">{name}</h1>
           </div>
         </div>
-      </a>
+      </Link>
     );
   }
 );

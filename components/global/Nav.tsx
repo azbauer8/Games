@@ -6,10 +6,10 @@ import globalState from "@/lib/globalState";
 const Header = () => {
   const { setSidebarOpen } = globalState();
   return (
-    <nav className="md:hidden sticky top-0 p-3 items-center z-50 max-w-fit bg-clip-padding backdrop-filter backdrop-blur-3xl rounded-br-lg">
+    <nav className="md:hidden fixed bottom-3 right-3 p-2 items-center z-50 max-w-fit bg-white hover:bg-neutral-200 rounded-2xl cursor-pointer">
       <Icon
         icon="ci:hamburger-md"
-        className="text-neutral-400 hover:text-white h-8 w-8 cursor-pointer "
+        className="text-neutral-900 size-11"
         onClick={() => setSidebarOpen(true)}
       />
     </nav>

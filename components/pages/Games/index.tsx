@@ -1,18 +1,7 @@
 import { useInfiniteQuery } from "@tanstack/react-query";
-import GameCard from "@/components/GameCard";
+import GameCard from "@/components/pages/Games/GameCard";
 import Loader from "@/components/ui/loader";
-import { useEffect, useRef } from "react";
-
-const pages = [
-  "TopPicks",
-  "Last30Days",
-  "ThisPastWeek",
-  "NextWeek",
-  "ThisMonth",
-  "BestOfThisYear",
-  "BestOfLastYear",
-  "AllTimeBest",
-];
+import { useEffect } from "react";
 
 async function fetchApi(pageTitle: string, pageNum: number) {
   try {

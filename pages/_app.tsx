@@ -1,5 +1,5 @@
 import type { AppProps } from "next/app";
-import Layout from "@/components/Layout";
+import Layout from "@/components/global/Layout";
 import "@/styles/global.css";
 import { useEffect } from "react";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";

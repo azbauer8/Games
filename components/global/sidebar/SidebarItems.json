@@ -11,7 +11,7 @@
       {
         "title": "Last 30 days",
         "icon": "fa6-solid:star",
-        "url": "/Last30Days",
+        "url": "../Last30Days",
         "type": "Link"
       },
       {

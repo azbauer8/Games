@@ -60,7 +60,7 @@ export const SidebarLink = ({
   const { setSidebarOpen } = globalState();
   const router = useRouter();
   const currentPage = router.query.page as string;
-  url = url?.substring(1);
+  const urlCheck = url?.substring(1);
   return (
     <Link
       href={url ? url : "/TopPicks"}
@@ -72,7 +72,7 @@ export const SidebarLink = ({
       <Icon
         icon={icon ? icon : ""}
         className={`flex-shrink-0 w-5 h-5 ${
-          currentPage === url ? "text-white" : "text-neutral-500"
+          currentPage === urlCheck ? "text-white" : "text-neutral-500"
         } transition duration-75 group-hover:text-white`}
       />
 
