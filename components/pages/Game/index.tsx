@@ -89,7 +89,7 @@ export default function Game({ data, imgs }: any) {
 
         {data.website && (
           <Button variant="ghost" className="w-full my-2 mb-4 py-6">
-            <a href={data.website}>Official Website</a>
+            <a href={data.website}>Link</a>
           </Button>
         )}
         <h1 className="text-3xl font-bold mb-5 w-10/12 mx-auto text-center">

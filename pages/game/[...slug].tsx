@@ -1,6 +1,6 @@
 import Game from "@/components/pages/Game";
-import LoadingGame from "@/components/pages/Game/LoadingGame";
 import NotFound from "@/components/pages/Not-Found";
+import Loader from "@/components/ui/loader";
 import { useQuery } from "@tanstack/react-query";
 import { useRouter } from "next/router";
 
@@ -24,7 +24,7 @@ export default function Page() {
 
   if (gameSuccess && !gameData) return <NotFound />;
 
-  return <LoadingGame />;
+  return <Loader />;
 }
 
 async function fetchData(slug: string) {
