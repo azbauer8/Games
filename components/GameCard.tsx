@@ -21,8 +21,8 @@ const GameCard: React.FC<GameCardProps> = React.memo(
 
     return (
       <a href={`https://rawg.io/games/${slug}`}>
-        <div className="bg-[#202020] rounded-lg w-full transform transition duration-200 ease-in-out hover:scale-105">
-          <div className="h-52 relative">
+        <div className="bg-[#202020] rounded-lg w-full transform transition duration-200 ease-in-out group">
+          <div className="h-52 relative overflow-hidden">
             <Image
               src={image ? image : placeholder}
               alt={name}
@@ -32,8 +32,10 @@ const GameCard: React.FC<GameCardProps> = React.memo(
               style={{
                 objectFit: "cover",
                 objectPosition: "center",
+                maxWidth: "100%", // Set maximum width to prevent overflow
+                maxHeight: "100%", // Set maximum height to prevent overflow
               }}
-              className="rounded-t-lg"
+              className="rounded-t-lg group-hover:scale-110 transition duration-300 ease-in-out"
             />
           </div>
           <div className="p-3 ">
