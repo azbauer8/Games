@@ -58,7 +58,7 @@ function SidebarContents() {
         </ul>
       </div>
       <div className="flex justify-center space-x-5 py-8">
-        <a href="https://zachbauer.me">
+        <a href="https://byzach.dev">
           <Icon
             icon="fa6-solid:hand-peace"
             className="h-7 w-7 md:h-8 md:w-8 text-white hover:text-neutral-500"
@@ -117,7 +117,7 @@ function DrawerContents() {
           </div>
         </div>
       </div>
-      <a href="https://zachbauer.me" className="bottom-6 right-[84px] absolute">
+      <a href="https://byzach.dev" className="bottom-6 right-[84px] absolute">
         <Icon
           icon="fa6-solid:hand-peace"
           className="size-8 text-white hover:text-neutral-500"
