@@ -1,7 +1,7 @@
 "use client";
 
 import { Icon } from "@iconify/react";
-import globalState from "@/lib/globalState";
+import globalState from "@/lib/state";
 
 const Header = () => {
   const { setSidebarOpen } = globalState();

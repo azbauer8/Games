@@ -1,11 +1,11 @@
 import { useInfiniteQuery } from "@tanstack/react-query";
-import GameCard from "@/components/pages/Games/GameCard";
+import GameCard from "@/components/GameCard";
 import Loader from "@/components/ui/loader";
 import { useEffect } from "react";
 
 async function fetchApi(pageTitle: string, pageNum: number) {
   try {
-    const response = await fetch(`/api/${pageTitle}/${pageNum}`);
+    const response = await fetch(`/api/games-list/${pageTitle}/${pageNum}`);
     if (!response.ok) {
       throw new Error("Network response was not ok");
     }
@@ -17,7 +17,7 @@ async function fetchApi(pageTitle: string, pageNum: number) {
   }
 }
 
-export default function Games({
+export default function GamesList({
   currentPage,
   pageTitle,
 }: {

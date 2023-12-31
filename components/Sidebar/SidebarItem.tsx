@@ -1,4 +1,4 @@
-import globalState from "@/lib/globalState";
+import globalState from "@/lib/state";
 import Link from "next/link";
 import { Icon } from "@iconify/react";
 import { useRouter } from "next/router";
@@ -15,7 +15,7 @@ export const SidebarTitle = ({
   const { setSidebarOpen } = globalState();
   return (
     <Link
-      href={url ? url : "/TopPicks"}
+      href={url ? url : "/"}
       className={`flex items-center ${
         isDrawer ? "py-2" : "p-2"
       } text-white rounded-lg hover:text-neutral-500 group`}
@@ -63,7 +63,7 @@ export const SidebarLink = ({
   const urlCheck = url?.substring(1);
   return (
     <Link
-      href={url ? url : "/TopPicks"}
+      href={url ? url : "/"}
       className={`flex items-center ${
         isDrawer ? "py-3 px-4 bg-neutral-800" : "p-2"
       } text-white rounded-lg group`}

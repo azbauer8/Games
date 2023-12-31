@@ -1,6 +1,6 @@
 import { Icon } from "@iconify/react";
 import Image from "next/image";
-import placeholder from "../../../public/placeholder.png";
+import placeholder from "../public/placeholder.png";
 import React from "react";
 import Link from "next/link";
 
@@ -23,7 +23,7 @@ const GameCard: React.FC<GameCardProps> = React.memo(
     return (
       <Link href={`/game/${slug}`}>
         <div className="bg-[#202020] rounded-lg w-full transform transition duration-200 ease-in-out group">
-          <div className="h-52 relative overflow-hidden rounded-lg">
+          <div className="h-52 relative overflow-hidden rounded-t-lg">
             <Image
               src={image ? image : placeholder}
               alt={name}
@@ -36,7 +36,7 @@ const GameCard: React.FC<GameCardProps> = React.memo(
                 maxWidth: "100%", // Set maximum width to prevent overflow
                 maxHeight: "100%", // Set maximum height to prevent overflow
               }}
-              className="rounded-t-lg group-hover:scale-110 transition duration-300 ease-in-out"
+              className="group-hover:scale-110 transition duration-300 ease-in-out"
             />
           </div>
           <div className="p-3 ">

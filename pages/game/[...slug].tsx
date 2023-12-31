@@ -1,5 +1,5 @@
-import Game from "@/components/pages/Game";
-import NotFound from "@/components/pages/Not-Found";
+import GameInfo from "@/routes/GameInfo";
+import NotFound from "@/routes/Not-Found";
 import Loader from "@/components/ui/loader";
 import { useQuery } from "@tanstack/react-query";
 import { useRouter } from "next/router";
@@ -19,7 +19,7 @@ export default function Page() {
   });
 
   if (gameSuccess && gameData && imgSuccess && imgData) {
-    return <Game data={gameData} imgs={imgData} />;
+    return <GameInfo data={gameData} imgs={imgData} />;
   }
 
   if (gameSuccess && !gameData) return <NotFound />;
@@ -29,7 +29,7 @@ export default function Page() {
 
 async function fetchData(slug: string) {
   try {
-    const response = await fetch(`/api/game/${slug}`);
+    const response = await fetch(`/api/game-info/${slug}`);
     if (!response.ok) {
       return null;
     }

@@ -3,8 +3,8 @@ import {
   SidebarHeader,
   SidebarTitle,
   SidebarLink,
-} from "@/components/global/sidebar/SidebarItem";
-import globalState from "@/lib/globalState";
+} from "@/components/Sidebar/SidebarItem";
+import globalState from "@/lib/state";
 import sidebarItems from "./SidebarItems.json";
 import { Drawer, DrawerContent } from "@/components/ui/drawer";
 

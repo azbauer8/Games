@@ -1,10 +1,9 @@
 import { useRouter } from "next/router";
-import Games from "@/components/pages/Games";
-import NotFound from "@/components/pages/Not-Found";
+import GamesList from "@/routes/GamesList";
+import NotFound from "@/routes/Not-Found";
 import Head from "next/head";
 
 const pages = [
-  "TopPicks",
   "Last30Days",
   "ThisPastWeek",
   "NextWeek",
@@ -25,18 +24,15 @@ function insertSpaces(string: string) {
 export default function Page() {
   const router = useRouter();
   let currentPage = router.query.page as string;
-  if (!currentPage) {
-    currentPage = "TopPicks";
-  }
-  const pageTitle = insertSpaces(currentPage);
 
   if (pages.includes(currentPage)) {
+    const pageTitle = insertSpaces(currentPage);
     return (
       <>
         <Head>
           <title>{pageTitle}</title>
         </Head>
-        <Games currentPage={currentPage} pageTitle={pageTitle} />
+        <GamesList currentPage={currentPage} pageTitle={pageTitle} />
       </>
     );
   }
