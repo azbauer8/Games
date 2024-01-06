@@ -1,7 +1,7 @@
-import { useRouter } from "next/router";
 import GamesList from "@/routes/GamesList";
 import NotFound from "@/routes/Not-Found";
 import Head from "next/head";
+import { useRouter } from "next/router";
 
 const pages = [
   "Last30Days",

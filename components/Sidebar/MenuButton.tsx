@@ -1,15 +1,15 @@
 "use client";
 
-import { Icon } from "@iconify/react";
 import globalState from "@/lib/state";
+import { Icon } from "@iconify/react";
 
 const Header = () => {
   const { setSidebarOpen } = globalState();
   return (
-    <nav className="md:hidden fixed bottom-3 right-3 p-2 items-center z-50 max-w-fit bg-white hover:bg-neutral-200 rounded-2xl cursor-pointer">
+    <nav className="fixed bottom-3 right-3 z-50 max-w-fit cursor-pointer items-center rounded-2xl bg-white p-2 hover:bg-neutral-200 md:hidden">
       <Icon
         icon="ci:hamburger-md"
-        className="text-neutral-900 size-11"
+        className="size-11 text-neutral-900"
         onClick={() => setSidebarOpen(true)}
       />
     </nav>

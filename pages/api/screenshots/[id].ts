@@ -3,12 +3,12 @@ import type { NextApiRequest, NextApiResponse } from "next";
 
 export default async function handler(
   req: NextApiRequest,
-  res: NextApiResponse
+  res: NextApiResponse,
 ) {
   const { id } = req.query;
   axios
     .get(
-      `https://api.rawg.io/api/games/${id}/screenshots?key=${process.env.RAWG_API}`
+      `https://api.rawg.io/api/games/${id}/screenshots?key=${process.env.RAWG_API}`,
     )
     .then((data) => {
       res.json(data.data);
