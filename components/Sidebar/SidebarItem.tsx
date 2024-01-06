@@ -1,6 +1,6 @@
 import globalState from "@/lib/state";
-import { Icon } from "@iconify/react";
 import Link from "next/link";
+import { Icon } from "@iconify/react";
 import { useRouter } from "next/router";
 
 export const SidebarTitle = ({
@@ -18,7 +18,7 @@ export const SidebarTitle = ({
       href={url ? url : "/"}
       className={`flex items-center ${
         isDrawer ? "py-2" : "p-2"
-      } group rounded-lg text-white hover:text-neutral-500`}
+      } text-white rounded-lg hover:text-neutral-500 group`}
       onClick={() => setSidebarOpen(false)}
     >
       <span className={`${isDrawer ? "text-4xl" : "text-3xl"} font-bold`}>
@@ -39,7 +39,7 @@ export const SidebarHeader = ({
     <span
       className={`flex items-center p-2 ${
         isDrawer ? "text-lg" : "text-xl"
-      } group rounded-lg text-white`}
+      } text-white rounded-lg group`}
     >
       {title}
     </span>
@@ -65,13 +65,13 @@ export const SidebarLink = ({
     <Link
       href={url ? url : "/"}
       className={`flex items-center ${
-        isDrawer ? "bg-neutral-800 px-4 py-3" : "p-2"
-      } group rounded-lg text-white`}
+        isDrawer ? "py-3 px-4 bg-neutral-800" : "p-2"
+      } text-white rounded-lg group`}
       onClick={() => setSidebarOpen(false)}
     >
       <Icon
         icon={icon ? icon : ""}
-        className={`h-5 w-5 flex-shrink-0 ${
+        className={`flex-shrink-0 w-5 h-5 ${
           currentPage === urlCheck ? "text-white" : "text-neutral-500"
         } transition duration-75 group-hover:text-white`}
       />

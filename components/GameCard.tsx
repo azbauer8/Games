@@ -1,9 +1,8 @@
 import { Icon } from "@iconify/react";
 import Image from "next/image";
-import Link from "next/link";
-import React from "react";
-
 import placeholder from "../public/placeholder.png";
+import React from "react";
+import Link from "next/link";
 
 interface GameCardProps {
   slug: string;
@@ -23,8 +22,8 @@ const GameCard: React.FC<GameCardProps> = React.memo(
 
     return (
       <Link href={`/game/${slug}`}>
-        <div className="group w-full transform rounded-lg bg-[#202020] transition duration-200 ease-in-out">
-          <div className="relative h-52 overflow-hidden rounded-t-lg">
+        <div className="bg-[#202020] rounded-lg w-full transform transition duration-200 ease-in-out group">
+          <div className="h-52 relative overflow-hidden rounded-t-lg">
             <Image
               src={image ? image : placeholder}
               alt={name}
@@ -37,16 +36,16 @@ const GameCard: React.FC<GameCardProps> = React.memo(
                 maxWidth: "100%", // Set maximum width to prevent overflow
                 maxHeight: "100%", // Set maximum height to prevent overflow
               }}
-              className="transition duration-300 ease-in-out group-hover:scale-110"
+              className="group-hover:scale-110 transition duration-300 ease-in-out"
             />
           </div>
           <div className="p-3 ">
-            <div className="flex w-full justify-between pb-2">
-              <div className="flex items-center justify-center space-x-1">
+            <div className="pb-2 w-full flex justify-between">
+              <div className="flex justify-center items-center space-x-1">
                 <Icon icon="fa6-regular:calendar" className="align-middle" />
                 <p>{formattedReleased}</p>
               </div>
-              <div className="flex items-center justify-center space-x-1">
+              <div className="flex justify-center items-center space-x-1">
                 <Icon icon="fa6-solid:star" className="align-middle" />
                 <p className="">{Math.round(rating * 10) / 10}</p>
               </div>
@@ -56,7 +55,7 @@ const GameCard: React.FC<GameCardProps> = React.memo(
         </div>
       </Link>
     );
-  },
+  }
 );
 
 GameCard.displayName = "GameCard";

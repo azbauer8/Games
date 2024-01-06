@@ -1,6 +1,6 @@
+import { useInfiniteQuery } from "@tanstack/react-query";
 import GameCard from "@/components/GameCard";
 import Loader from "@/components/ui/loader";
-import { useInfiniteQuery } from "@tanstack/react-query";
 import { useEffect } from "react";
 
 async function fetchApi(pageTitle: string, pageNum: number) {
@@ -66,8 +66,8 @@ export default function GamesList({
 
   return (
     <>
-      <div className="space-y-2 pb-5">
-        <h1 className="text-center text-4xl font-bold md:pb-5 md:text-left md:text-7xl">
+      <div className="pb-5 space-y-2">
+        <h1 className="text-4xl font-bold text-center md:text-7xl md:pb-5 md:text-left">
           {pageTitle}
         </h1>
       </div>
@@ -75,7 +75,7 @@ export default function GamesList({
       {isLoading ? (
         <Loader />
       ) : isSuccess ? (
-        <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5 gap-4">
           {data.pages.map((page) =>
             page.results.map((item: any) => (
               <GameCard
@@ -86,14 +86,14 @@ export default function GamesList({
                 rating={item["rating"]}
                 released={item["released"]}
               />
-            )),
+            ))
           )}
         </div>
       ) : null}
 
       {isFetchingNextPage && (
         <div className="flex items-center justify-center">
-          <div className="mt-10 rounded bg-white px-20 py-2 text-lg font-bold text-black hover:bg-neutral-300">
+          <div className="bg-white hover:bg-neutral-300 text-black text-lg font-bold py-2 px-20 rounded mt-10">
             Loading more...
           </div>
         </div>

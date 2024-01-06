@@ -3,7 +3,7 @@ import type { NextApiRequest, NextApiResponse } from "next";
 
 export default async function handler(
   req: NextApiRequest,
-  res: NextApiResponse,
+  res: NextApiResponse
 ) {
   const { params } = req.query;
   if (params?.length === 2) {
@@ -38,13 +38,13 @@ export default async function handler(
       const monthStart = new Date(
         currentDate.getFullYear(),
         currentDate.getMonth(),
-        1,
+        1
       );
       formattedDateStart = formatDate(monthStart);
       const monthEnd = new Date(
         currentDate.getFullYear(),
         currentDate.getMonth() + 1,
-        0,
+        0
       );
       formattedDateEnd = formatDate(monthEnd);
     } else if (params[0] === "BestOfThisYear") {
@@ -66,7 +66,7 @@ export default async function handler(
 
     axios
       .get(
-        `https://api.rawg.io/api/games?dates=${formattedDateStart},${formattedDateEnd}&page=${params[1]}&key=${process.env.RAWG_API}`,
+        `https://api.rawg.io/api/games?dates=${formattedDateStart},${formattedDateEnd}&page=${params[1]}&key=${process.env.RAWG_API}`
       )
       .then((data) => {
         res.json(data.data);
