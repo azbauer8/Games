@@ -1,6 +1,6 @@
+import Loader from "@/components/ui/loader";
 import GameInfo from "@/routes/GameInfo";
 import NotFound from "@/routes/Not-Found";
-import Loader from "@/components/ui/loader";
 import { useQuery } from "@tanstack/react-query";
 import { useRouter } from "next/router";
 
