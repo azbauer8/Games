@@ -1,6 +1,12 @@
 {
   "root": true,
-  "extends": "next/core-web-vitals",
+  "extends": [
+    "eslint:recommended",
+    "plugin:@typescript-eslint/recommended",
+    "plugin:react-hooks/recommended",
+    "plugin:tailwindcss/recommended",
+    "next/core-web-vitals"
+  ],
   "ignorePatterns": ["dist", ".eslintrc"],
   "parser": "@typescript-eslint/parser",
   "plugins": ["react-refresh", "tailwindcss"],
