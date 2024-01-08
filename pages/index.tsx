@@ -1,5 +1,5 @@
-import GamesList from "@/routes/GamesList";
-import Head from "next/head";
+import Head from "next/head"
+import GamesList from "@/routes/GamesList"
 
 // seemingly no way to catch the index in a dynamic route, so have to manually render this one
 export default function Home() {
@@ -10,5 +10,5 @@ export default function Home() {
       </Head>
       <GamesList currentPage="TopPicks" pageTitle="Top Picks" />
     </>
-  );
+  )
 }

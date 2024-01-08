@@ -1,14 +1,15 @@
-import { Badge } from "@/components/ui/badge";
-import { Button } from "@/components/ui/button";
+import Head from "next/head"
+import Image from "next/image"
+
+import { Badge } from "@/components/ui/badge"
+import { Button } from "@/components/ui/button"
 import {
   Carousel,
   CarouselContent,
   CarouselItem,
   CarouselNext,
   CarouselPrevious,
-} from "@/components/ui/carousel";
-import Head from "next/head";
-import Image from "next/image";
+} from "@/components/ui/carousel"
 
 export default function GameInfo({ data, imgs }: any) {
   return (
@@ -122,7 +123,7 @@ export default function GameInfo({ data, imgs }: any) {
         </Carousel>
       </div>
     </>
-  );
+  )
 }
 
 function formatDate(date: Date) {
@@ -130,5 +131,5 @@ function formatDate(date: Date) {
     year: "numeric",
     month: "short",
     day: "numeric",
-  });
+  })
 }

@@ -1,24 +1,24 @@
-import axios from "axios";
-import type { NextApiRequest, NextApiResponse } from "next";
+import type { NextApiRequest, NextApiResponse } from "next"
+import axios from "axios"
 
 export default async function handler(
   req: NextApiRequest,
-  res: NextApiResponse,
+  res: NextApiResponse
 ) {
-  const { id } = req.query;
+  const { id } = req.query
   axios
     .get(
-      `https://api.rawg.io/api/games/${id}/screenshots?key=${process.env.RAWG_API}`,
+      `https://api.rawg.io/api/games/${id}/screenshots?key=${process.env.RAWG_API}`
     )
     .then((data) => {
-      res.json(data.data);
+      res.json(data.data)
     })
     .catch((error) => {
-      res.status(500).json({ error: error.message });
-    });
+      res.status(500).json({ error: error.message })
+    })
 }
 export const config = {
   api: {
     externalResolver: true,
   },
-};
+}

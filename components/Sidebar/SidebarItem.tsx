@@ -1,18 +1,19 @@
-import globalState from "@/lib/state";
-import { Icon } from "@iconify/react";
-import Link from "next/link";
-import { useRouter } from "next/router";
+import Link from "next/link"
+import { useRouter } from "next/router"
+import { Icon } from "@iconify/react"
+
+import globalState from "@/lib/state"
 
 export const SidebarTitle = ({
   url,
   title,
   isDrawer,
 }: {
-  url?: string;
-  title: string;
-  isDrawer?: boolean;
+  url?: string
+  title: string
+  isDrawer?: boolean
 }) => {
-  const { setSidebarOpen } = globalState();
+  const { setSidebarOpen } = globalState()
   return (
     <Link
       href={url ? url : "/"}
@@ -25,15 +26,15 @@ export const SidebarTitle = ({
         {title}
       </span>
     </Link>
-  );
-};
+  )
+}
 
 export const SidebarHeader = ({
   title,
   isDrawer,
 }: {
-  title: string;
-  isDrawer?: boolean;
+  title: string
+  isDrawer?: boolean
 }) => {
   return (
     <span
@@ -43,8 +44,8 @@ export const SidebarHeader = ({
     >
       {title}
     </span>
-  );
-};
+  )
+}
 
 export const SidebarLink = ({
   url,
@@ -52,15 +53,15 @@ export const SidebarLink = ({
   icon,
   isDrawer,
 }: {
-  url?: string;
-  title: string;
-  icon: string;
-  isDrawer?: boolean;
+  url?: string
+  title: string
+  icon: string
+  isDrawer?: boolean
 }) => {
-  const { setSidebarOpen } = globalState();
-  const router = useRouter();
-  const currentPage = router.query.page as string;
-  const urlCheck = url?.substring(1);
+  const { setSidebarOpen } = globalState()
+  const router = useRouter()
+  const currentPage = router.query.page as string
+  const urlCheck = url?.substring(1)
   return (
     <Link
       href={url ? url : "/"}
@@ -82,5 +83,5 @@ export const SidebarLink = ({
         {title}
       </span>
     </Link>
-  );
-};
+  )
+}

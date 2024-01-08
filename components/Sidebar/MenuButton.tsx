@@ -1,10 +1,11 @@
-"use client";
+"use client"
 
-import globalState from "@/lib/state";
-import { Icon } from "@iconify/react";
+import { Icon } from "@iconify/react"
+
+import globalState from "@/lib/state"
 
 const Header = () => {
-  const { setSidebarOpen } = globalState();
+  const { setSidebarOpen } = globalState()
   return (
     <nav className="fixed bottom-3 right-3 z-50 max-w-fit cursor-pointer items-center rounded-2xl bg-white p-2 hover:bg-neutral-200 md:hidden">
       <Icon
@@ -13,7 +14,7 @@ const Header = () => {
         onClick={() => setSidebarOpen(true)}
       />
     </nav>
-  );
-};
+  )
+}
 
-export default Header;
+export default Header

@@ -5,5 +5,5 @@ export default function NotFound() {
         {`You're lost, partner`}
       </h1>
     </div>
-  );
+  )
 }

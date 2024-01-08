@@ -1,16 +1,16 @@
-import { Icon } from "@iconify/react";
-import Image from "next/image";
-import Link from "next/link";
-import React from "react";
+import React from "react"
+import Image from "next/image"
+import Link from "next/link"
+import { Icon } from "@iconify/react"
 
-import placeholder from "../public/placeholder.png";
+import placeholder from "../public/placeholder.png"
 
 interface GameCardProps {
-  slug: string;
-  name: string;
-  image: string;
-  rating: number;
-  released: string;
+  slug: string
+  name: string
+  image: string
+  rating: number
+  released: string
 }
 
 const GameCard: React.FC<GameCardProps> = React.memo(
@@ -19,7 +19,7 @@ const GameCard: React.FC<GameCardProps> = React.memo(
       year: "numeric",
       month: "short",
       day: "numeric",
-    });
+    })
 
     return (
       <Link href={`/game/${slug}`}>
@@ -55,10 +55,10 @@ const GameCard: React.FC<GameCardProps> = React.memo(
           </div>
         </div>
       </Link>
-    );
-  },
-);
+    )
+  }
+)
 
-GameCard.displayName = "GameCard";
+GameCard.displayName = "GameCard"
 
-export default GameCard;
+export default GameCard

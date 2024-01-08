@@ -2,11 +2,11 @@ function Loader() {
   return (
     <div
       role="status"
-      className="flex space-x-3 mt-5 md:mt-0 md:ml-6 items-center justify-center md:items-start md:justify-start"
+      className="mt-5 flex items-center justify-center space-x-3 md:ml-6 md:mt-0 md:items-start md:justify-start"
     >
       <svg
         aria-hidden="true"
-        className="w-8 h-8 animate-spin text-gray-500 fill-white"
+        className="h-8 w-8 animate-spin fill-white text-gray-500"
         viewBox="0 0 100 101"
         fill="none"
         xmlns="http://www.w3.org/2000/svg"
@@ -20,8 +20,8 @@ function Loader() {
           fill="currentFill"
         />
       </svg>
-      <h1 className="text-2xl font-bold -translate-y-0.5">Loading...</h1>
+      <h1 className="-translate-y-0.5 text-2xl font-bold">Loading...</h1>
     </div>
-  );
+  )
 }
-export default Loader;
+export default Loader

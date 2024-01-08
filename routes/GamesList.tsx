@@ -1,19 +1,20 @@
-import GameCard from "@/components/GameCard";
-import Loader from "@/components/ui/loader";
-import { useInfiniteQuery } from "@tanstack/react-query";
-import { useEffect } from "react";
+import { useEffect } from "react"
+import { useInfiniteQuery } from "@tanstack/react-query"
+
+import Loader from "@/components/ui/loader"
+import GameCard from "@/components/GameCard"
 
 async function fetchApi(pageTitle: string, pageNum: number) {
   try {
-    const response = await fetch(`/api/games-list/${pageTitle}/${pageNum}`);
+    const response = await fetch(`/api/games-list/${pageTitle}/${pageNum}`)
     if (!response.ok) {
-      throw new Error("Network response was not ok");
+      throw new Error("Network response was not ok")
     }
-    const data = await response.json();
-    return data;
+    const data = await response.json()
+    return data
   } catch (error) {
-    console.error("Error fetching game data:", error);
-    return;
+    console.error("Error fetching game data:", error)
+    return
   }
 }
 
@@ -21,8 +22,8 @@ export default function GamesList({
   currentPage,
   pageTitle,
 }: {
-  currentPage: string;
-  pageTitle: string;
+  currentPage: string
+  pageTitle: string
 }) {
   const {
     data,
@@ -36,33 +37,33 @@ export default function GamesList({
     queryFn: ({ pageParam }) => fetchApi(currentPage, pageParam),
     getNextPageParam: (lastPage, pages) => {
       if (lastPage.next) {
-        const nextPage = lastPage.next.slice(-1);
-        return nextPage;
+        const nextPage = lastPage.next.slice(-1)
+        return nextPage
       } else {
-        return undefined;
+        return undefined
       }
     },
     initialPageParam: 1,
-  });
+  })
 
   useEffect(() => {
     const handleScroll = () => {
       const bottom =
         Math.ceil(window.innerHeight + window.scrollY) >=
-        document.documentElement.scrollHeight;
+        document.documentElement.scrollHeight
 
       if (bottom && hasNextPage && !isFetchingNextPage) {
-        fetchNextPage();
+        fetchNextPage()
       }
-    };
+    }
     window.addEventListener("scroll", handleScroll, {
       passive: true,
-    });
+    })
 
     return () => {
-      window.removeEventListener("scroll", handleScroll);
-    };
-  }, [fetchNextPage, hasNextPage, isFetchingNextPage]);
+      window.removeEventListener("scroll", handleScroll)
+    }
+  }, [fetchNextPage, hasNextPage, isFetchingNextPage])
 
   return (
     <>
@@ -86,7 +87,7 @@ export default function GamesList({
                 rating={item["rating"]}
                 released={item["released"]}
               />
-            )),
+            ))
           )}
         </div>
       ) : null}
@@ -99,5 +100,5 @@ export default function GamesList({
         </div>
       )}
     </>
-  );
+  )
 }

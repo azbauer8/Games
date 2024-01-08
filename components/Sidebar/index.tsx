@@ -1,16 +1,17 @@
+import { Icon } from "@iconify/react"
+
+import globalState from "@/lib/state"
+import { Drawer, DrawerContent } from "@/components/ui/drawer"
 import {
   SidebarHeader,
   SidebarLink,
   SidebarTitle,
-} from "@/components/Sidebar/SidebarItem";
-import { Drawer, DrawerContent } from "@/components/ui/drawer";
-import globalState from "@/lib/state";
-import { Icon } from "@iconify/react";
+} from "@/components/Sidebar/SidebarItem"
 
-import sidebarItems from "./SidebarItems.json";
+import sidebarItems from "./SidebarItems.json"
 
 function Sidebar() {
-  const { sidebarOpen, setSidebarOpen } = globalState();
+  const { sidebarOpen, setSidebarOpen } = globalState()
   return (
     <>
       <Drawer open={sidebarOpen} onOpenChange={setSidebarOpen}>
@@ -22,7 +23,7 @@ function Sidebar() {
         <SidebarContents />
       </div>
     </>
-  );
+  )
 }
 
 function SidebarContents() {
@@ -43,7 +44,7 @@ function SidebarContents() {
                 icon={link.icon}
                 url={link.url}
               />
-            );
+            )
           })}
           <SidebarHeader title={sidebarItems[2].title} />
           {sidebarItems[2].children?.map((link) => {
@@ -54,7 +55,7 @@ function SidebarContents() {
                 icon={link.icon}
                 url={link.url}
               />
-            );
+            )
           })}
         </ul>
       </div>
@@ -73,7 +74,7 @@ function SidebarContents() {
         </a>
       </div>
     </div>
-  );
+  )
 }
 
 function DrawerContents() {
@@ -97,7 +98,7 @@ function DrawerContents() {
                   url={link.url}
                   isDrawer
                 />
-              );
+              )
             })}
           </div>
         </div>
@@ -113,7 +114,7 @@ function DrawerContents() {
                   url={link.url}
                   isDrawer
                 />
-              );
+              )
             })}
           </div>
         </div>
@@ -134,7 +135,7 @@ function DrawerContents() {
         />
       </a>
     </div>
-  );
+  )
 }
 
-export default Sidebar;
+export default Sidebar
