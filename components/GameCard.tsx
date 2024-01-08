@@ -23,7 +23,7 @@ const GameCard: React.FC<GameCardProps> = React.memo(
 
     return (
       <Link href={`/game/${slug}`}>
-        <div className="group w-full transform rounded-lg bg-[#202020] transition duration-200 ease-in-out">
+        <div className="group w-full rounded-lg bg-[#202020] transition duration-200 ease-in-out">
           <div className="relative h-52 overflow-hidden rounded-t-lg">
             <Image
               src={image ? image : placeholder}

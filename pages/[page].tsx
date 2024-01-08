@@ -23,7 +23,7 @@ function insertSpaces(string: string) {
 
 export default function Page() {
   const router = useRouter()
-  let currentPage = router.query.page as string
+  const currentPage = router.query.page as string
 
   if (pages.includes(currentPage)) {
     const pageTitle = insertSpaces(currentPage)

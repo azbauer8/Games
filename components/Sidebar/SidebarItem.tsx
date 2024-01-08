@@ -72,7 +72,7 @@ export const SidebarLink = ({
     >
       <Icon
         icon={icon ? icon : ""}
-        className={`h-5 w-5 flex-shrink-0 ${
+        className={`h-5 w-5 shrink-0 ${
           currentPage === urlCheck ? "text-white" : "text-neutral-500"
         } transition duration-75 group-hover:text-white`}
       />
