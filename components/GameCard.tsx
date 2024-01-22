@@ -21,23 +21,30 @@ const GameCard: React.FC<GameCardProps> = React.memo(
       day: "numeric",
     })
 
+    console.log(image)
+
     return (
       <Link href={`/game/${slug}`}>
         <div className="group w-full rounded-lg bg-[#202020] transition duration-200 ease-in-out">
-          <div className="relative h-52 overflow-hidden rounded-t-lg">
+          <div className="relative h-48 overflow-hidden rounded-t-lg md:h-36">
             <Image
               src={image ? image : placeholder}
               alt={name}
-              fill
-              loading="lazy"
-              sizes="(max-width: 640px) 100vw, (max-width: 1024px) 100vw, 100vw"
+              className="transition duration-300 ease-in-out group-hover:scale-110"
               style={{
                 objectFit: "cover",
                 objectPosition: "center",
-                maxWidth: "100%", // Set maximum width to prevent overflow
-                maxHeight: "100%", // Set maximum height to prevent overflow
+                width: "100%",
+                height: "100%",
+                maxWidth: "100%",
+                maxHeight: "100%",
               }}
-              className="transition duration-300 ease-in-out group-hover:scale-110"
+              priority
+              // fill
+              // layout="fill"
+              width={300}
+              height={0}
+              quality={30}
             />
           </div>
           <div className="p-3 ">

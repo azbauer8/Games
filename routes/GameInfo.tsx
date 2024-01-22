@@ -19,14 +19,25 @@ export default function GameInfo({ data, imgs }: any) {
       </Head>
       <div className="mb-20">
         <div className="flex flex-col lg:flex-row lg:items-center lg:justify-center lg:gap-5">
-          <Image
-            src={data.background_image}
-            alt={data.name}
-            className="mx-auto rounded-lg lg:mx-0 lg:w-1/2"
-            width={1280}
-            height={720}
-            priority
-          />
+          <div>
+            <Image
+              src={data.background_image}
+              alt={data.name}
+              className="mx-auto rounded-lg lg:mx-0 lg:w-1/2"
+              priority
+              width={800}
+              height={0}
+              quality={50}
+              style={{
+                objectFit: "cover",
+                objectPosition: "center",
+                width: "100%",
+                height: "100%",
+                maxWidth: "100%",
+                maxHeight: "100%",
+              }}
+            />
+          </div>
           <div className="space-y-4">
             <h1 className="mt-4 text-4xl font-bold">{data.name}</h1>
 
@@ -105,15 +116,24 @@ export default function GameInfo({ data, imgs }: any) {
           className="mx-auto w-10/12"
         >
           <CarouselContent>
-            {imgs.results.map((img: any) => (
+            {imgs.results.map((img: any, index: number) => (
               <CarouselItem key={img.id}>
                 <Image
                   src={img.image}
                   alt={img.id}
                   className="rounded-lg"
-                  width={1280}
-                  height={720}
-                  priority
+                  priority={index === 0}
+                  width={800}
+                  height={0}
+                  quality={80}
+                  style={{
+                    objectFit: "cover",
+                    objectPosition: "center",
+                    width: "100%",
+                    height: "100%",
+                    maxWidth: "100%",
+                    maxHeight: "100%",
+                  }}
                 />
               </CarouselItem>
             ))}
