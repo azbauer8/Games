@@ -15,11 +15,11 @@ export default function Sidebar() {
     <>
       <MenuButton setSidebarOpen={setSidebarOpen} />
       <Drawer open={sidebarOpen} onOpenChange={setSidebarOpen}>
-        <DrawerContent className="outline-none focus:outline-none">
+        <DrawerContent className="mx-2 outline-none focus:outline-none">
           <DrawerContents setSidebarOpen={setSidebarOpen} />
         </DrawerContent>
       </Drawer>
-      <div className="sticky top-0 hidden h-full w-64 flex-col justify-between bg-neutral-900 md:flex">
+      <div className="sticky top-0 hidden h-full w-64 flex-col justify-between md:flex">
         <SidebarContents setSidebarOpen={setSidebarOpen} />
       </div>
     </>
