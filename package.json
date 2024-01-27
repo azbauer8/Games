@@ -6,8 +6,8 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint",
-    "format": "prettier --write ."
+    "lint": "npx biome lint .",
+    "format": "npx biome format ."
   },
   "dependencies": {
     "@radix-ui/react-dialog": "^1.0.5",
