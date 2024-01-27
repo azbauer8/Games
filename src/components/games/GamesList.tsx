@@ -1,8 +1,8 @@
-import { Games } from "@/types"
+import { Game } from "@/types"
 
 import GameCard from "./GameCard"
 
-export default function GamesList({ games }: { games: Games[] | undefined }) {
+export default function GamesList({ games }: { games: Game[] | undefined }) {
   return (
     <>
       {games &&
