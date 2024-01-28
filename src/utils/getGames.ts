@@ -9,7 +9,9 @@ export default async function GetGames(pageTitle: string, pageNum: number) {
 	const dateStart = new Date(currentDate)
 	const dateEnd = new Date(currentDate)
 
-	if (pageTitle === "TopPicks") {
+	console.log("fetching games for", pageTitle, pageNum)
+
+	if (pageTitle === "Trending") {
 		const dateRange = 90
 		dateStart.setDate(currentDate.getDate() - dateRange)
 		formattedDateStart = formatDate(dateStart)
@@ -23,11 +25,6 @@ export default async function GetGames(pageTitle: string, pageNum: number) {
 	} else if (pageTitle === "ThisPastWeek") {
 		const dateRange = 7
 		dateStart.setDate(currentDate.getDate() - dateRange)
-		formattedDateStart = formatDate(dateStart)
-		formattedDateEnd = formatDate(dateEnd)
-	} else if (pageTitle === "NextWeek") {
-		const dateRange = 7
-		dateEnd.setDate(currentDate.getDate() + dateRange)
 		formattedDateStart = formatDate(dateStart)
 		formattedDateEnd = formatDate(dateEnd)
 	} else if (pageTitle === "ThisMonth") {
