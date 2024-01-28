@@ -11,13 +11,13 @@ import {
 } from "@/components/ui/carousel"
 
 async function loader(slug: string) {
-	const info = await fetch(
+	const info: GameInfo = await fetch(
 		`https://api.rawg.io/api/games/${slug}?key=${process.env.RAWG_API}`,
 	).then(async (res) => await res.json())
-	const imgs = await fetch(
+	const { results }: { results: GameImg[] } = await fetch(
 		`https://api.rawg.io/api/games/${slug}/screenshots?key=${process.env.RAWG_API}`,
 	).then(async (res) => await res.json())
-	return { info: info as GameInfo, imgs: imgs.results as GameImg[] }
+	return { info: info, imgs: results }
 }
 
 function formatDate(date: string) {
@@ -33,11 +33,11 @@ export default async function Game({ params }: { params: { slug: string } }) {
 	return (
 		<div className="mb-20">
 			<div className="flex flex-col lg:flex-row lg:items-center lg:justify-center lg:gap-5">
-				<div>
+				<div className="lg:w-1/2">
 					<img
 						src={data.info.background_image}
 						alt={data.info.name}
-						className="mx-auto rounded-lg lg:mx-0 lg:w-1/2"
+						className="mx-auto rounded-lg"
 						width={800}
 						height={0}
 						style={{

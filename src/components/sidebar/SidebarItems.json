@@ -1,13 +1,13 @@
 [
   {
-    "title": "Top Picks",
-    "url": "/",
-    "type": "Title"
-  },
-  {
     "title": "New Releases",
-    "type": "Header",
     "children": [
+      {
+        "title": "Trending",
+        "icon": "fa6-solid:arrow-trend-up",
+        "url": "/",
+        "type": "Link"
+      },
       {
         "title": "Last 30 days",
         "icon": "fa6-solid:star",
@@ -21,12 +21,6 @@
         "type": "Link"
       },
 
-      {
-        "title": "Next week",
-        "icon": "fa6-solid:forward",
-        "url": "/NextWeek",
-        "type": "Link"
-      },
 
       {
         "title": "This month",
@@ -39,7 +33,6 @@
 
   {
     "title": "Top",
-    "type": "Header",
     "children": [
       {
         "title": "This year",

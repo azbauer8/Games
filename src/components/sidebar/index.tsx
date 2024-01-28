@@ -34,32 +34,19 @@ export default function Sidebar() {
 			<div className="flex h-screen w-56 flex-col overflow-y-auto">
 				<div className="px-6 py-4 pt-16">
 					<ul className="space-y-2 font-medium">
-						<SidebarTitle
-							title={sidebarItems[0].title}
-							url={sidebarItems[0].url}
-						/>
-						<SidebarHeader title={sidebarItems[1].title} />
-						{sidebarItems[1].children?.map((link) => {
-							return (
-								<SidebarLink
-									key={link.title}
-									title={link.title}
-									icon={link.icon}
-									url={link.url}
-								/>
-							)
-						})}
-						<SidebarHeader title={sidebarItems[2].title} />
-						{sidebarItems[2].children?.map((link) => {
-							return (
-								<SidebarLink
-									key={link.title}
-									title={link.title}
-									icon={link.icon}
-									url={link.url}
-								/>
-							)
-						})}
+						{sidebarItems.map((section) => (
+							<>
+								<SidebarHeader title={section.title} />
+								{section.children.map((link) => (
+									<SidebarLink
+										key={link.title}
+										title={link.title}
+										icon={link.icon}
+										url={link.url}
+									/>
+								))}
+							</>
+						))}
 					</ul>
 				</div>
 				<div className="flex justify-center space-x-5 py-8">
@@ -83,44 +70,25 @@ export default function Sidebar() {
 	function DrawerContents() {
 		return (
 			<div className="relative mx-auto w-full max-w-2xl p-5 pb-20">
-				<SidebarTitle
-					title={sidebarItems[0].title}
-					url={sidebarItems[0].url}
-					isDrawer
-				/>
 				<div className="flex flex-col space-x-0 sm:flex-row sm:space-x-4">
-					<div className="w-full sm:w-1/2">
-						<SidebarHeader title={sidebarItems[1].title} isDrawer />
-						<div className="grid grid-cols-2 gap-2">
-							{sidebarItems[1].children?.map((link) => {
-								return (
-									<SidebarLink
-										key={link.title}
-										title={link.title}
-										icon={link.icon}
-										url={link.url}
-										isDrawer
-									/>
-								)
-							})}
+					{sidebarItems.map((section) => (
+						<div className="w-full sm:w-1/2">
+							<SidebarHeader title={section.title} isDrawer />
+							<div className="grid grid-cols-2 gap-2">
+								{section.children?.map((link) => {
+									return (
+										<SidebarLink
+											key={link.title}
+											title={link.title}
+											icon={link.icon}
+											url={link.url}
+											isDrawer
+										/>
+									)
+								})}
+							</div>
 						</div>
-					</div>
-					<div className="w-full sm:w-1/2">
-						<SidebarHeader title={sidebarItems[2].title} isDrawer />
-						<div className="grid grid-cols-2 gap-2">
-							{sidebarItems[2].children?.map((link) => {
-								return (
-									<SidebarLink
-										key={link.title}
-										title={link.title}
-										icon={link.icon}
-										url={link.url}
-										isDrawer
-									/>
-								)
-							})}
-						</div>
-					</div>
+					))}
 				</div>
 				<a href="https://byzach.dev" className="absolute bottom-6 right-[84px]">
 					<Icon
@@ -141,30 +109,6 @@ export default function Sidebar() {
 		)
 	}
 
-	function SidebarTitle({
-		url,
-		title,
-		isDrawer,
-	}: {
-		url?: string
-		title: string
-		isDrawer?: boolean
-	}) {
-		return (
-			<Link
-				href={url ? url : "/"}
-				className={`flex items-center ${
-					isDrawer ? "py-2" : "p-2"
-				} group rounded-lg text-white hover:text-neutral-500`}
-				onClick={() => setSidebarOpen(false)}
-			>
-				<span className={`${isDrawer ? "text-4xl" : "text-3xl"} font-bold`}>
-					{title}
-				</span>
-			</Link>
-		)
-	}
-
 	function SidebarHeader({
 		title,
 		isDrawer,
@@ -176,7 +120,7 @@ export default function Sidebar() {
 			<span
 				className={`flex items-center p-2 ${
 					isDrawer ? "text-lg" : "text-xl"
-				} group rounded-lg text-white`}
+				} group rounded-lg text-white font-semibold`}
 			>
 				{title}
 			</span>
