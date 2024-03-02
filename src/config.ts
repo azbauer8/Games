@@ -1,12 +1,12 @@
 export type SiteConfig = typeof siteConfig
 
 export const siteConfig = {
-  title: "Liftoff",
-  description: "A starter kit for Next.js with NextUI",
+  title: "Games",
+  description: "A micro-service site showing recent and upcoming game releases",
   creator: "Zach Bauer",
   favicon: "/favicon.ico",
   links: {
-    github: "https://github.com/azbauer8/liftoff",
-    components: "https://github.com/azbauer8/NextUI-Enhanced",
+    site: "https://byzach.dev",
+    github: "https://github.com/azbauer8/Games",
   },
 }

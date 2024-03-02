@@ -4,6 +4,14 @@ const nextConfig = {
     ppr: true,
     typedRoutes: true,
   },
+  images: {
+    remotePatterns: [
+      {
+        protocol: "https",
+        hostname: "media.rawg.io",
+      },
+    ],
+  },
 }
 
 module.exports = nextConfig

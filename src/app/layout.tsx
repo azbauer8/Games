@@ -1,13 +1,11 @@
-import Footer from "@/app/_layout/Footer"
-import Navbar from "@/app/_layout/Navbar/Navbar"
-import { Providers } from "@/app/_layout/Providers"
-
 import "@/styles.css"
 
-import { siteConfig } from "@/config"
-import clsx from "clsx"
 import { Metadata } from "next"
 import { Inter } from "next/font/google"
+import { siteConfig } from "@/config"
+import clsx from "clsx"
+
+import Sidebar from "@/app/_layout/Sidebar"
 
 export const metadata: Metadata = {
   title: {
@@ -27,23 +25,18 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="en" suppressHydrationWarning>
+    <html lang="en" className="dark" suppressHydrationWarning>
       <head />
       <body
         className={clsx(
           "bg-background text-foreground antialiased",
-          inter.className,
+          inter.className
         )}
       >
-        <Providers>
-          <div className="relative flex min-h-screen flex-col">
-            <Navbar />
-            <main className="container mx-auto max-w-7xl flex-1 px-5 py-10">
-              {children}
-            </main>
-            <Footer />
-          </div>
-        </Providers>
+        <div className="relative mx-auto flex max-w-[115rem] flex-col md:flex-row">
+          <Sidebar />
+          <main className=" flex-auto p-5 pt-8 md:pt-12">{children}</main>
+        </div>
       </body>
     </html>
   )
