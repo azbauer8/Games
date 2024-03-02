@@ -1,0 +1,13 @@
+{
+  "recommendations": [
+    "bradlc.vscode-tailwindcss",
+    "antfu.file-nesting",
+    "usernamehw.errorlens",
+    "yoavbls.pretty-ts-errors",
+    "biomejs.biome",
+    "mxsdev.typescript-explorer",
+    "hektorw.create-react-folder-component",
+    "saharavr.react-component-splitter",
+    "fooxly.workspace"
+  ]
+}
